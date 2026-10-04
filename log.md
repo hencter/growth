@@ -4,6 +4,12 @@
 
 ---
 
+## [2026-10-05] init | 主人定名：亦幸 → [[learning]]
+
+`_identity/user-config.md`：`owner_name` = **亦幸**（用户直接给出），`initialized: true`，`domain: learning-and-growth` 保持不变。
+`nova_name` 仍为临时值 `Nova`，`pending_personalization: true` —— 待用户给出 AI 管家名字后覆盖并置 `false`。
+本文件被 `.gitignore` 忽略（属个人配置，不进版本库）。
+
 ## [2026-10-05] lint+fix | 图谱体检（90 文件）+ §2.6 数字复核：真实断链 0 · 孤儿 0 · 版本同步 ✓ → §2.6
 
 **Lint（图谱 90 个 .md，排除 skills/.git/.obsidian/log-archive）**：
