@@ -25,13 +25,13 @@ rdep_depth: "S-1 · 诊断"
 rdep_budget_hours: 0.5
 rdep_started: 2026-10-05
 rdep_deadline: 2026-10-06
-rdep_next: "拷问 Q1：当时比过哪些备选？以及文档写 FastAPI、决策说 Rust，哪个算数？"
+rdep_next: "拷问 Q2：那份写着 FastAPI 的架构文档怎么处理？（更新 / 标 superseded / 不处理）"
 rdep_stages:
   - { id: "S-1", name: "起点诊断", hours: 0.5, status: done, skills: "investigation-first · criticism-self-criticism", artifact: "对象=架构；两份原始文档已读；三条回答已收（评估依据=他的表达）" }
   - { id: "S0", name: "定义对象", hours: 0.25, status: done, skills: "concentrate-forces", artifact: "目标由他的回答定出：把已有的架构判断装上词汇与框架，并能书面辩护（不是我给的菜单）" }
   - { id: "S1", name: "迷你地图", hours: 0.5, status: done, skills: "investigation-first · karlmarx-skill", artifact: "词汇地图已产出 → [[architecture-vocabulary-from-your-answers]]（他的三条回答 → 标准词汇）" }
   - { id: "S2", name: "语言", hours: 0.25, status: doing, skills: "obsidian-markdown", artifact: "词汇对照已出；下一步他用词汇复述自己的系统（一次一句话）" }
-  - { id: "S3", name: "复现", hours: 1.0, status: doing, skills: "practice-cognition · grill-me", artifact: "ADR-001 已立（Status=accepted）；拷问 Q1 已发出（备选 + 文档不一致）" }
+  - { id: "S3", name: "复现", hours: 1.0, status: doing, skills: "practice-cognition · grill-me", artifact: "ADR-001 已立（Status=accepted）；Q1 已答（Python 被否理由＝对 AI 的层级歧义 + 冗余文件）" }
   - { id: "S4", name: "真实分歧", hours: 0.25, status: todo, skills: "contradiction-analysis · zoom-out", artifact: "该对象上 2 个真实争论 + 定论条件" }
   - { id: "S5", name: "产出与拷问", hours: 1.0, status: todo, skills: "grill-me · criticism-self-criticism", artifact: "产出 + 被拷问后的修订（含他指出我的问题）" }
   - { id: "S6", name: "抗遗忘", hours: 0.25, status: todo, skills: "self-evolution · auto-commit", artifact: "入库 + 第 3/10/30 天复习" }
