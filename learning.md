@@ -3,7 +3,7 @@ type: Index
 title: "学习 — 加速学习方法论"
 aliases:
   - "学习中枢"
-description: 本库主线集群：把「学得更快」沉淀成可复用的方法与可加载的技能——18 篇原子知识点 + 27 个技能的路由表。
+description: 本库主线集群：把「学得更快」沉淀成可复用的方法与可加载的技能——19 篇原子知识点 + 27 个技能的路由表。
 tags: [learning, index, hub, method]
 generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:45:00+08:00 }
 id: "20261005T054500"
@@ -37,7 +37,7 @@ summary: >
 | **觉得自己「不懂架构」，要从头学** | **[[architecture-what-counts\|什么算架构（第一课）]]**（用你自己的系统当教材）· [[system-architect-t1-sprint\|S-1 起点诊断]] || **他说了「我不懂架构」，但一开口就在做架构判断** | **[[architecture-vocabulary-from-your-answers\|你的判断力已经有名字了]]**（把他的话翻成标准词汇） |## 进行中的运行
 
 - **架构决策表达 · ADR（方法验证跑）** — [[system-architect-t1-sprint|打开运行单]]：**3.5 小时**跑通「真正学会」五条标准的第一个可验证对象；进度、技能路由、五条标准自检都写在该页 frontmatter，[站点看板](http://localhost:1414/growth/#progress) 自动汇总。
-## 知识本体（18 篇）
+## 知识本体（19 篇）
 
 | 场景 | 先读这一篇 |
 |------|-----------|
