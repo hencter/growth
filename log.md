@@ -4,6 +4,21 @@
 
 ---
 
+## [2026-10-05] ingest | 能迁移任务开工：Lemmy 采用 ActivityPub 的证据取证（仪器输出）→ [[lemmy-federation-evidence]]
+
+**学习者选定题目**：「Lemmy 为什么选 ActivityPub 联邦」（同领域、但系统不属于他）。按事先声明：**师友当仪器不当作者**。
+**取证方式**：`web_fetch` 在本环境被 DNS 策略拦截（非公网地址）；改用 **`gh` CLI（已认证，用户名 hencter）** + GitHub API + 维基百科。
+**关键一手发现**：
+1. **原始方法文档**：`docs/apub_api_outline.md` 初版（2019-05-15 提交）开头即方法句：*"Start with the reddit API, and find Activitypub vocab to match it."* —— 决策**做法**有据可查。
+2. **立项前提，非后期追加**：原仓库名 `rust-reddit-fediverse`（2019-02-14 创建）；项目第 11 天 #3 即「Build ActivityPUB API」（2019-02-25），`API.md` 首次提交信息为「Initial outline of activitypub API」。
+3. **排序决策**：#145（2019-05-05）*"Our primary goal is to federate among Lemmy instances… Mastodon or Pleroma will come after."*
+4. **备选有据**：#1（2019-02-14）Nutomic 指出已存在同类项目 **Prismo**（描述："Federated link aggregation **powered by ActivityPub**"）；#145 评论中 poVoq 提议改用 GNU Social/Friendica/Hubzilla 的既有社区建模法；Nutomic 提议采用现成 Rust AAP 库。
+5. **代价有据**：dessalines 自述"难以把每一样信息塞进 activitypub 词表"；#1874 提到"像 0.13 那样"的**破坏性联邦变更**。
+6. **仍在生效**：官方文档（2026-10-05 抓取）仍为 ActivityPub + Community=Group/User=Person/Post=Page/Comment=Note，并将通用逻辑抽成 `activitypub-federation` 库；社区联邦对应 FEP-1b12。
+**缺口（他必须标 [推断]）**：2019 年**没有协议层比较**（`OStatus` 命中全在 2023 年后；`custom protocol` 命中 0）；决策者私人理由、成本数据、跨实现代价量化均无证据。
+**产出**：`learning/lemmy-federation-evidence.md`（时间线 + 证据→ADR 栏目分类 + 无证据区 + 5 道留给他的判断题；末节留了"清单里哪两处是我推断"的练习）。
+**下一步**：等他交自己的 Lemmy ADR；验收规则不变（随机指一句须能答出处，答不出 ≥3 句判不过）。
+**管线**：learning 22 篇；严格构建 0 警告。
 ## [2026-10-05] session | 能迁移的验收规则：**可以借 AI 工具，但判断不可外包**（事先声明）→ [[system-architect-t1-sprint]]
 
 **他问**：「在过程中，我能借助 AI 工具吗？比如你。」

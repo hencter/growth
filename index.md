@@ -47,6 +47,7 @@ graph TD
 - [[architecture-vocabulary-from-your-answers|你的判断力已经有名字了]] — 把学习者自己的三条回答翻成架构标准词汇（含两处他纠正我的地方）
 - [[adr-001-rust-choice|ADR-001：论坛后端选型采用 Rust]] — 他第一条真实架构决策的 ADR（Status=accepted；备选栏已由拷问 Q1 填齐）
 - [[builder-verifiability|Builder-Verifiability（建造者可验证性）]] — 从该 ADR 提炼的架构属性：当建造者是 AI 时，工具链的错误信号质量就是架构属性（学习者原创）
+- [[lemmy-federation-evidence|Lemmy 为何采用 ActivityPub —— 证据清单]] — 能迁移任务的取证底稿（仪器输出，判断留给学习者）
 - [[ai-native-architecture-constraints|AI-Native Architecture Constraints]] — 两个第一性约束（建造者可验证性 × 边际成本）＋ 人类留「验收/担责/判断」三件事
 - [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — **进入任何一个新领域的执行协议**：三档预算（3h / 9.5h / 29.5h）× 七阶段 × 五道闸门，配套 [[rapid-domain-entry-worksheet|填空表]]
 - [[learning-acceleration-loop|Learning Acceleration Loop]] — 七阶段学习回路：提问 → 查一手 → 拆解 → 骨架 → 验证 → 输出 → 反馈

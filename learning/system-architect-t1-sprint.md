@@ -25,7 +25,7 @@ rdep_depth: "T0+ · 方法验证跑"
 rdep_budget_hours: 4.0
 rdep_started: 2026-10-05
 rdep_deadline: 2026-10-07
-rdep_next: "能迁移（最后一项）：对一个不属于你的开源系统做一次 ADR 逆向工程——用公开证据写出它的 境/择/存/果/备选/推翻条件"
+rdep_next: "能迁移（最后一项）：等他交 Lemmy 的 ADR——证据清单已备（含 4 处无证据区），判断栏必须他自己写"
 rdep_stages:
   - { id: "S-1", name: "起点诊断", hours: 0.5, status: done, skills: "investigation-first · criticism-self-criticism", artifact: "对象=架构；两份原始文档已读；三条回答已收（评估依据=他的表达）" }
   - { id: "S0", name: "定义对象", hours: 0.25, status: done, skills: "concentrate-forces", artifact: "目标由他的回答定出：把已有的架构判断装上词汇与框架，并能书面辩护（不是我给的菜单）" }
@@ -286,6 +286,23 @@ summary: >
 
 ### 师友的角色（自我约束）
 **当仪器，不当作者**：只做检索 / 抓取 / 核对 / 翻译 / 当反方；给出的每条都带来源；**选哪个决策、怎么权衡、推翻条件——不给**（给了就作废）。若他愿意用**另一个模型**起草、师友当评审，交叉验证更强，也接受。
+## 能迁移：证据底稿已备（2026-10-05）
+
+**题目**：学习者选定 **「Lemmy 为什么选 ActivityPub 联邦」**（对象属于他、也属于同一领域：论坛/社区）。
+
+**仪器输出（师友，仅取证不判断）**：`[[lemmy-federation-evidence]]` —— 时间线 + 每条证据"可能支撑哪一栏"的分类 + **明确列出没有证据的四个部分**（协议比较、决策者私人理由、成本数据、跨实现互操作代价）。
+
+**关键取证成果（可核查）**
+1. **原始方法文档**：`docs/apub_api_outline.md` 初版开头一句即方法 —— *"Start with the reddit API, and find Activitypub vocab to match it."*（决策做法有据）。
+2. **立项前提而非后期追加**：仓库名 `rust-reddit-fediverse`；项目第 11 天（2019-02-25）#3 就叫 **"Build ActivityPUB API"**。
+3. **排序决策**：#145（2019-05-05）明确 *"Our primary goal is to federate among Lemmy instances… Mastodon/Pleroma will come after."*
+4. **备选有据**：#1（2019-02-14）Nutomic 指出同类项目 **Prismo**（其描述为 *"Federated link aggregation powered by ActivityPub"*）；#145 评论里 poVoq 提出改用 GNU Social/Friendica/Hubzilla 的既有社区建模方法；Nutomic 提出用现成 Rust AAP 库。
+5. **代价有据**：dessalines 自述"难以把每一样信息塞进 activitypub 词表"；#1874 记录"像 0.13 那样"的**破坏性联邦变更**。
+6. **仍在生效**：2026-10-05 抓取的官方文档仍写 ActivityPub + Group/Person/Page/Note 映射，并把通用逻辑抽成 `activitypub-federation` 库。
+
+**噪音与缺口（必须由他标 `[推断]`）**：2019 年**没有**协议层比较（`OStatus` 的命中全在 2023 年后，`custom protocol` 命中 0）；决策者私人理由与成本数据均不在证据内。
+
+**下一步**：等他交**自己的** Lemmy ADR（境/择/存/果/备选/推翻条件）。验收规则不变：随机指一句要能回答"这条我从哪来的"；**答不出 ≥3 句即判为 AI 的 ADR，不通过**。
 ## See Also
 
 - [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — 已加入 S-1 与上述三条规则
