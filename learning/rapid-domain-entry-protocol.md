@@ -68,8 +68,37 @@ A certificate proves attendance at a process. These five criteria are what **真
 
 Rules: if any criterion is unmet, the honest word is **"familiar"**, not "learned" — say it out loud. Mastery is **domain-relative**: these criteria apply to the slice defined in S0, not to an entire civilisation of knowledge. And they are *behavioural tests, not feelings*: you demonstrate them, you never merely feel them.
 
+## Assessment rule — read the answers, not the homework
+
+Assessing a learner happens on **their own statements**: their questions, their judgements, their explanations, and their admissions of ignorance. Completing an artifact the mentor assigned is evidence of *compliance*, not of learning — useful, but never a substitute for the learner's own voice.
+
+Consequences:
+
+- An answer that only says "you decide" is **insufficient evidence**, and the honest report says so.
+- Silence is reported as **no evidence**, never as "probably fine".
+- A single self-report is low-sample evidence: label it as such.
+- **Never introduce an uncalibrated term**: if the learner cannot yet explain a term in their own words, ask or teach it first — do not build a run on top of it.
+
+**Insufficiency thresholds** — say these out loud instead of inventing progress:
+
+| The learner says | Verdict |
+|------------------|---------|
+| "you pick one" / "whatever you think" | insufficient — the target is still the mentor's |
+| a whole field name ("I want to learn AI") | insufficient — no object, no situation, no question |
+| "I'm working on X, stuck at Y, I don't understand Z" | sufficient — object + situation + their own question |
 ## The seven stages
 
+### S-1 · Diagnose the starting point (15 min) — artifact: the learner's own words
+
+Before any target is set, establish where the learner actually **is** — with **open questions, never a menu**:
+
+1. What is one thing you have been *trying* to understand and have not?
+2. Where exactly does it stall — missing information, inability to judge, or not knowing how to act?
+3. If you understood it a week from now, what would you do with it? (No use ⇒ it may be curiosity, not a learning target.)
+
+Record the learner's **verbatim answers**, and refuse to design the run before you have them. A menu of options supplied by the mentor biases the choice — observed twice in one session: exam-flavoured options, and then a term the learner could not define.
+
+> Gate: the learner has named the object **in their own sentence**. "You decide" is not an answer — it means the target is still yours, and the assessment would have no object.
 ### S0 · Define the target (30 min) — artifact: a one-paragraph contract
 
 Write, in one paragraph:
