@@ -9,6 +9,7 @@
     </a>
     <nav class="site-nav">
       <a href="{{ site.Home.RelPermalink }}">首页</a>
+      <a href="{{ site.Home.RelPermalink }}#progress">进度</a>
       {{ with site.GetPage "/tags" }}<a href="{{ .RelPermalink }}">标签</a>{{ end }}
       {{ with site.Params.repo }}<a href="{{ . }}" rel="noopener">源码</a>{{ end }}
     </nav>

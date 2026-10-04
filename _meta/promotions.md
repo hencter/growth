@@ -44,5 +44,6 @@ Promoted lessons filed as concept/pattern/tool notes — knowledge background, n
 |------|------|--------|-------|
 | 2026-08-14 | [[deepseek-harness|DeepSeek Harness]] (tools/) | DSH runtime model & tool stack — the reference note behind the §9 mapping | log 2026-08-14 |
 | 2026-08-14 | [[knowledge-graph-patterns|Knowledge Graph Patterns]] (patterns/) | Displayed link syntax must be escaped; lint counts only rendered edges | log 2026-08-14 |
+| 2026-10-05 | [[rapid-domain-entry-protocol\|Rapid Domain Entry Protocol]] (learning/) | Goal comes from use, never from available material · five behavioural mastery criteria · per-stage skill routing is a pre-work action, not a doc entry | log 2026-10-05 |
 
 ## Retired — full history in `/log-archive/`

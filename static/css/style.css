@@ -173,6 +173,37 @@ ul.skills li { border-left: 2px solid var(--line); padding: 4px 0 4px 12px; }
 .okf-sources li { margin: 0.3em 0; }
 .src-id { margin-right: 6px; font-size: 0.78rem; }
 
+/* ---------- 学习进度看板 ---------- */
+
+.run { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; background: var(--bg-soft); margin: 14px 0 22px; }
+.run-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.run-head h3 { margin: 0; font-size: 1.08rem; }
+.badge { font-size: 0.76rem; padding: 2px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.badge.doing { background: #dff0e2; color: #22592f; }
+.badge.warn { background: #f7e3d5; color: #8a3d18; }
+@media (prefers-color-scheme: dark) {
+  .badge.doing { background: #1e3324; color: #8fd6a2; }
+  .badge.warn { background: #3a2418; color: #e8a678; }
+}
+.bar { height: 10px; border-radius: 999px; background: var(--code-bg); overflow: hidden; margin: 12px 0 8px; }
+.bar > span { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+.run-meta { margin: 0; font-size: 0.88rem; color: var(--fg-dim); }
+.run-next { margin: 6px 0 0; font-size: 0.92rem; }
+.run-link { margin: 12px 0 0; font-size: 0.88rem; }
+ol.stages { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 3px; }
+.stage { display: grid; grid-template-columns: 3.4ch 9ch 5ch 8ch 1fr; gap: 8px; align-items: baseline; padding: 5px 8px; border-radius: 6px; font-size: 0.86rem; }
+.stage.done { background: var(--accent-soft); }
+.stage.doing { outline: 1px solid var(--accent); }
+.stage .sid { font-weight: 700; color: var(--fg-dim); }
+.stage .shours, .stage .sstat, .stage .sart { color: var(--fg-dim); font-size: 0.79rem; }
+.stage .sskills { grid-column: 2 / -1; color: var(--accent); font-size: 0.76rem; }
+.status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; margin-top: 26px; }
+.status-grid h3 { margin: 0 0 8px; font-size: 0.98rem; }
+ul.recent, ul.activity { list-style: none; padding: 0; margin: 0; font-size: 0.86rem; }
+ul.recent li, ul.activity li { margin: 0.35em 0; padding-bottom: 0.35em; border-bottom: 1px dotted var(--line); }
+ul.recent time, ul.activity time { color: var(--fg-dim); font-variant-numeric: tabular-nums; margin-right: 6px; }
+ul.activity .op { display: inline-block; font-size: 0.72rem; padding: 1px 6px; border-radius: 4px; background: var(--code-bg); color: var(--fg-dim); margin-right: 5px; }
+
 @media print {
   .site-head, .site-foot, .crumbs, .toc { display: none; }
   body { font-size: 11pt; }

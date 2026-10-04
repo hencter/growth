@@ -1,0 +1,103 @@
+{{/*
+  学习进度与状态看板
+  数据源全部在库内，站点只做汇总，零手工维护：
+  - 领域运行进度 ← 任意笔记 frontmatter 的 rdep_run / rdep_stages（见 learning/system-architect-t1-sprint.md）
+  - 知识库状态   ← 全部页面 frontmatter 的 status / difficulty / verified
+  - 最近动态     ← log.md（构建时 readFile 直接读库的记忆层）
+*/}}
+{{ $notes := site.RegularPages }}
+
+<section class="block" id="progress">
+  <h2>学习进度与状态 <span class="dim">数据来自笔记 frontmatter 与 log.md，站点只汇总</span></h2>
+
+  {{ $runs := where $notes "Params.rdep_run" true }}
+  {{ if $runs }}
+    {{ range $runs }}
+      {{ $budget := float .Params.rdep_budget_hours }}
+      {{ $done := 0.0 }}
+      {{ $doing := "" }}
+      {{ range .Params.rdep_stages }}
+        {{ if eq (printf "%v" .status) "done" }}{{ $done = add $done (float .hours) }}{{ end }}
+        {{ if eq (printf "%v" .status) "doing" }}{{ $doing = .name }}{{ end }}
+      {{ end }}
+      {{ $pct := 0.0 }}
+      {{ if gt $budget 0.0 }}{{ $pct = div (mul $done 100.0) $budget }}{{ end }}
+      {{ $days := 0 }}
+      {{ with .Params.rdep_deadline }}{{ $days = div (sub (time .).Unix now.Unix) 86400 }}{{ end }}
+
+      <div class="run">
+        <div class="run-head">
+          <h3>{{ .Params.rdep_field }}</h3>
+          <span class="badge">{{ .Params.rdep_depth }}</span>
+          {{ with $doing }}<span class="badge doing">进行中 · {{ . }}</span>{{ end }}
+          {{ if lt $days 0 }}
+            <span class="badge warn">已过期 {{ mul $days -1 }} 天</span>
+          {{ else if le $days 3 }}
+            <span class="badge warn">剩 {{ $days }} 天</span>
+          {{ else }}
+            <span class="badge">剩 {{ $days }} 天</span>
+          {{ end }}
+        </div>
+
+        <div class="bar" role="img" aria-label="阶段完成度 {{ printf "%.0f" $pct }}%">
+          <span style="width: {{ printf "%.1f" $pct }}%"></span>
+        </div>
+        <p class="run-meta">
+          预算 <strong>{{ $budget }}</strong> h · 已完成 <strong>{{ printf "%.1f" $done }}</strong> h
+          （<strong>{{ printf "%.0f" $pct }}%</strong>）· {{ .Params.rdep_started }} → {{ .Params.rdep_deadline }}
+        </p>
+        {{ with .Params.rdep_next }}<p class="run-next"><strong>下一步：</strong>{{ . }}</p>{{ end }}
+
+        <ol class="stages">
+          {{ range .Params.rdep_stages }}
+            {{ $st := printf "%v" .status }}
+            <li class="stage {{ $st }}">
+              <span class="sid">{{ .id }}</span>
+              <span class="sname">{{ .name }}</span>
+              <span class="shours">{{ .hours }}h</span>
+              <span class="sstat">{{ if eq $st "done" }}✅ 完成{{ else if eq $st "doing" }}🔄 进行中{{ else }}⬜ 未开始{{ end }}</span>
+              {{ with .artifact }}<span class="sart">{{ . }}</span>{{ end }}
+              {{ with .skills }}<span class="sskills">先加载 skills：{{ . }}</span>{{ end }}
+            </li>
+          {{ end }}
+        </ol>
+
+        <p class="run-link"><a href="{{ .RelPermalink }}">打开运行单 →</a>　<span class="dim">进度写在该页 frontmatter 的 <code>rdep_stages</code>，改一行即更新</span></p>
+      </div>
+    {{ end }}
+  {{ else }}
+    <p class="dim">暂无进行中的领域运行：在任意笔记 frontmatter 加 <code>rdep_run: true</code> + <code>rdep_stages</code> 即可出现在这里。</p>
+  {{ end }}
+
+  <div class="status-grid">
+    <div>
+      <h3>知识库状态</h3>
+      <p class="chips">
+        {{ range $notes.GroupByParam "status" }}<span class="chip">{{ .Key }} <span class="dim">{{ len .Pages }}</span></span>{{ end }}
+      </p>
+      <p class="chips">
+        {{ range $notes.GroupByParam "difficulty" }}<span class="chip">{{ .Key }} <span class="dim">{{ len .Pages }}</span></span>{{ end }}
+      </p>
+      {{ $v := 0 }}{{ range $notes }}{{ if .Params.verified }}{{ $v = add $v 1 }}{{ end }}{{ end }}
+      <p class="dim">共 {{ len $notes }} 篇 · 有复核记录（<code>verified</code>）<strong>{{ $v }}</strong> 篇 · 其余 <code>unverified</code>（尚无人工复核）</p>
+    </div>
+
+    <div>
+      <h3>最近更新</h3>
+      <ul class="recent">
+        {{ range first 5 $notes.ByLastmod.Reverse }}
+          <li><time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006-01-02" }}</time><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+
+    <div>
+      <h3>最近动态 <span class="dim">log.md</span></h3>
+      <ul class="activity">
+        {{ range first 6 (findRESubmatch `(?m)^## \[(\d{4}-\d{2}-\d{2})\]\s*([\w+]+)\s*\|\s*(.+?)\s*$` (readFile "log.md")) }}
+          <li><time datetime="{{ index . 1 }}">{{ index . 1 }}</time><span class="op">{{ index . 2 }}</span>{{ index . 3 }}</li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</section>

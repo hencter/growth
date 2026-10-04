@@ -54,6 +54,19 @@ Two design commitments make it fast rather than merely thorough:
 | **T2 · 深入** | **29.5 h over ~4 weeks** | T1 + a real project reviewed against an outside standard + 2 reproductions + teaching a live audience | you need to be the person others ask |
 
 Budgets are computed, not vibes: S0 0.5 + S1 2 + S2 1.5 + S3 2.5 + S4 1 + S5 1.5 + S6 0.5 = **9.5 h**, and the T2 figure adds ~20 h of project and deep-dive. Reproduction plus published output is **4 h of the 9.5 h (42%)** — that ratio is the whole point.
+## What "genuinely learned" means (mastery criteria)
+
+A certificate proves attendance at a process. These five criteria are what **真正学会** means operationally — the delivery standard at T2 and the review standard for every artifact at any depth:
+
+| Criterion | Behavioural test | Fails when |
+|-----------|------------------|------------|
+| **Ask** | you can pose the field's *next* question yourself | you can only answer questions someone else framed |
+| **Judge** | you can evaluate a new claim, design, or result with no authority to check against | you need a teacher or a citation to tell you whether it is any good |
+| **Transfer** | you can apply it to a situation you have never seen | you can only redo the worked examples |
+| **Teach** | you can teach it and survive the follow-up questions | your explanation collapses on the second "why?" |
+| **Boundaries** | you can state precisely what you do *not* know yet | you cannot locate the edge of your own competence |
+
+Rules: if any criterion is unmet, the honest word is **"familiar"**, not "learned" — say it out loud. Mastery is **domain-relative**: these criteria apply to the slice defined in S0, not to an entire civilisation of knowledge. And they are *behavioural tests, not feelings*: you demonstrate them, you never merely feel them.
 
 ## The seven stages
 
@@ -69,6 +82,7 @@ Write, in one paragraph:
 - **One open question** — your Stage-5 output answers it ([[independent-thinking-against-information-overload|make it open, not yes/no]]).
 
 > Gate: can you state the deliverable and its reader in one sentence? If not, stop here — the rest of the protocol would only produce well-organised drift.
+> **Anti-pattern (learned 2026-10-05)**: never let the material at hand set the goal. A study plan already sitting in your vault, an exam calendar, or a course you already bought may *inform the path* — they must not *define the target*. Ask "what will I use this capability for?" first, then decide what to learn. (A concrete failure: a 12-week exam-prep plan in the vault turned "enter a field fast" into "prepare for an exam".)
 
 ### S1 · Map the field (2 h) — artifact: a one-page field map
 
@@ -134,7 +148,21 @@ Answer your S0 question for the named reader, with sources, structured by [[sand
 - Schedule retrieval at **day 3 / day 10 / day 30**: rebuild the map from memory, then diff against the original ([[review-and-recall-rhythm|reconstruct, don't re-read]]).
 - Decide: **stop** (and archive with the stopping condition met), or **continue** with a next loop that raises depth (T1 → T2) — never continue by default.
 
-## Where the marginal hour goes
+## Where the marginal hour goes## Skill routing — load the skill, do not merely know it exists
+
+Each stage has skills that already encode the operational discipline. **Load them with the `skill` tool before the stage starts**: a skill that is not loaded is not applied, and a stage run from memory is a stage run from habit.
+
+| Stage | Load | Purpose |
+|-------|------|---------|
+| S0 · target | `investigation-first` · `concentrate-forces` | survey the actual situation, then commit to one main target |
+| S1 · map | `investigation-first` · `overall-planning` · `karlmarx-skill` | first-hand facts, balance competing goals, structural analysis |
+| S2 · language | `cross-tag-method` · `obsidian-markdown` | classify terms; write notes that survive lint |
+| S3 · reproduce | `practice-cognition` · `grill-me` | practice → understanding → practice loop; interrogate the plan before building |
+| S4 · frontier | `contradiction-analysis` · `zoom-out` · `mass-line` | isolate the principal contradiction; raise abstraction; gather outside views |
+| S5 · output | `criticism-self-criticism` · `minimalist-review` | honest self-review before delivery; cut what carries no weight |
+| S6 · decay | `self-evolution` · `nova-kb` · `auto-commit` | distil the lesson, file and lint the vault, commit |
+| blocked at any stage | `investigation-first` · `spark-prairie-fire` · `protracted-strategy` | unknown territory · start from almost nothing · long haul with no quick win |
+
 
 If the budget shrinks, cut in this order — protect the bottom of the list:
 
