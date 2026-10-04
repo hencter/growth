@@ -4,6 +4,14 @@
 
 ---
 
+## [2026-10-05] init | 自主定名：知行（AI 管家）· owner 亦幸 → [[learning-acceleration-loop]]
+
+用户委托自行取名（原话「你自己起名字吧」），`_identity/user-config.md`：`nova_name` = **知行**，`owner_name` = **亦幸**，`pending_personalization: false` —— 本库初始化完成。
+
+**取名理由**：本库立库主张是「回路闭环 + 输出即检验」（[[learning-acceleration-loop]]、[[output-based-retention]]、`practice-cognition` 实践论），「知」「行」二字正对「认知必须回到实践验证」；同时承接 Note 库代理「幸知」的「知」字——两库人格同源、各自独立。
+
+**约定**：文件名与既有 wiki 链接（`_identity/nova-identity.md`、`[[nova-identity|Nova Identity]]` 等）**不改名**——它们是 schema 契约与图谱节点，改名即断边。显示名以 `user-config.md` 的 `nova_name` 为准（AGENTS.md §0 已规定覆盖行为）：**角色槽位叫 Nova，我的名字叫知行**。`nova-identity.md` 顶部加显示名说明。
+
 ## [2026-10-05] init | 主人定名：亦幸 → [[learning]]
 
 `_identity/user-config.md`：`owner_name` = **亦幸**（用户直接给出），`initialized: true`，`domain: learning-and-growth` 保持不变。
