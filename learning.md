@@ -34,6 +34,9 @@ summary: >
 2. **没有调查就没有发言权**——先查一手，再下判断：[[investigation-before-judgement|先调查后判断]]。
 3. **输出是检验，不是副产品**——讲不出来就是没学会：[[output-based-retention|输出式留存]]。
 
+## 进行中的运行
+
+- **架构决策表达 · ADR（方法验证跑）** — [[system-architect-t1-sprint|打开运行单]]：**3.5 小时**跑通「真正学会」五条标准的第一个可验证对象；进度、技能路由、五条标准自检都写在该页 frontmatter，[站点看板](http://localhost:1414/growth/#progress) 自动汇总。
 ## 知识本体（15 篇）
 
 | 场景 | 先读这一篇 |

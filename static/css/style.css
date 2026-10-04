@@ -197,6 +197,12 @@ ol.stages { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 
 .stage .sid { font-weight: 700; color: var(--fg-dim); }
 .stage .shours, .stage .sstat, .stage .sart { color: var(--fg-dim); font-size: 0.79rem; }
 .stage .sskills { grid-column: 2 / -1; color: var(--accent); font-size: 0.76rem; }
+.mastery-title { margin: 18px 0 6px; font-size: 0.95rem; }
+ul.mastery { list-style: none; padding: 0; margin: 0; display: grid; gap: 3px; }
+ul.mastery li { display: grid; grid-template-columns: 9ch 8ch 1fr; gap: 8px; align-items: baseline; padding: 4px 8px; border-radius: 6px; font-size: 0.84rem; }
+ul.mastery li.m-done { background: var(--accent-soft); }
+ul.mastery .mname { font-weight: 600; }
+ul.mastery .mstat, ul.mastery .mev { color: var(--fg-dim); font-size: 0.79rem; }
 .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; margin-top: 26px; }
 .status-grid h3 { margin: 0 0 8px; font-size: 0.98rem; }
 ul.recent, ul.activity { list-style: none; padding: 0; margin: 0; font-size: 0.86rem; }

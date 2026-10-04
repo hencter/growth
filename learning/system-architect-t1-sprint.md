@@ -1,12 +1,12 @@
 ---
 type: Tutorial
-title: "系统架构 · T1 能力冲刺运行单"
-description: RDEP 首个领域运行（能力向，非应试）：7 天 9.5 小时，产出一份可评审的架构设计与一次设计评审。站点「学习进度」看板读本页 frontmatter。
-tags: [learning, rdep-run, system-architecture, capability]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:40:00+08:00 }
-id: "20261005T054000"
+title: "架构决策表达 · 首个可验证对象：ADR"
+description: 方法验证跑（小事物优先）：3.5 小时内真正学会「写一份可用的架构决策记录」，并用现场产出的 ADR 逐条检验「真正学会」五条标准。
+tags: [learning, rdep-run, adr, architecture, pilot]
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T06:05:00+08:00 }
+id: "20261005T060500"
 status: budding
-difficulty: intermediate
+difficulty: beginner
 domain: learning-and-growth
 prerequisites:
   - "[[rapid-domain-entry-protocol]]"
@@ -17,154 +17,156 @@ related:
   - "[[output-based-retention|Output-Based Retention]]"
   - "[[investigation-before-judgement|Investigation Before Judgement]]"
 sources:
-  - id: own-projects
-    resource: "Scope: owner's real projects available as cases — Note vault 10_Projects/DoggyArium（论坛社区项目架构文档）, 微微电商对接, 通天道论坛"
-    title: "Owner's real systems (case material for S3)"
-  - id: sei-atam
-    resource: "https://www.sei.cmu.edu/architecture/tools/evaluate/atam.cfm"
-    title: "SEI — Architecture Tradeoff Analysis Method (ATAM)"
+  - id: nygard-2011
+    resource: "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions"
+    title: "Michael Nygard — Documenting Architecture Decisions (2011-11-15)｜ADR 原始出处，2026-10-05 实测 HTTP 200"
+  - id: adr-github
+    resource: "https://adr.github.io/"
+    title: "Architecture Decision Records（社区站，2026-10-05 实测 HTTP 200）"
 rdep_run: true
-rdep_field: "系统架构（能力向 · 非应试）"
-rdep_depth: "T1"
-rdep_budget_hours: 9.5
+rdep_field: "架构决策表达 · 首个可验证对象（ADR）"
+rdep_depth: "T0+ · 方法验证跑"
+rdep_budget_hours: 3.5
 rdep_started: 2026-10-05
-rdep_deadline: 2026-10-12
-rdep_next: "S1：挑一个真实系统当靶子（先加载 investigation-first），把它的质量属性与约束压成一页五格"
+rdep_deadline: 2026-10-07
+rdep_next: "S3：挑一个你已经做出的真实决策，写 1-2 页 ADR（≥2 备选 + 代价 + 可度量后果 + 推翻条件），然后接受 grill-me 逐条拷问"
 rdep_stages:
-  - { id: "S0", name: "定义能力靶子", hours: 0.5, status: done, skills: "investigation-first · concentrate-forces", artifact: "契约：靶子=真实系统的架构决策（非考试）；交付物=可评审架构设计 + 一次设计评审" }
-  - { id: "S1", name: "领域地图", hours: 2.0, status: doing, skills: "investigation-first · overall-planning · karlmarx-skill", artifact: "一页五格：架构风格 · 质量属性 · 视图 · 评估方法 · 真实争论" }
-  - { id: "S2", name: "术语与语言", hours: 1.5, status: todo, skills: "cross-tag-method · obsidian-markdown", artifact: "30 条：风格 / 质量属性 / 权衡点 / 敏感点 / 风险点 / 视图（自己写定义）" }
-  - { id: "S3", name: "复现：真做一次设计", hours: 2.5, status: todo, skills: "practice-cognition · grill-me", artifact: "对真实模块做架构推演：质量属性场景 → 风格选择 → 视图 → ATAM 自查" }
-  - { id: "S4", name: "前沿分歧", hours: 1.0, status: todo, skills: "contradiction-analysis · zoom-out · mass-line", artifact: "2-3 个真实工程争论（微服务边界 / DDD 限界上下文 / 一致性策略）及定论条件" }
-  - { id: "S5", name: "产出与评审", hours: 1.5, status: todo, skills: "criticism-self-criticism · minimalist-review", artifact: "一份架构设计说明 + 一次真实评审；对照「真正学会」五条标准自检" }
-  - { id: "S6", name: "抗遗忘", hours: 0.5, status: todo, skills: "self-evolution · nova-kb · auto-commit", artifact: "第 3/10/30 天检索复习 + 三件产物入库" }
-confidence: 0.7
+  - { id: "S0", name: "定义可验证对象", hours: 0.25, status: done, skills: "investigation-first · concentrate-forces", artifact: "契约：对象=一份可用 ADR；交付=真实决策的 1-2 页 ADR + 一次拷问修订" }
+  - { id: "S1", name: "迷你地图", hours: 0.5, status: doing, skills: "investigation-first · karlmarx-skill", artifact: "四段结构 + 好/坏判据（本页 S1 节，取自 Nygard 原文）" }
+  - { id: "S2", name: "术语", hours: 0.25, status: todo, skills: "cross-tag-method · obsidian-markdown", artifact: "12 条术语：ADR / 权衡 / 质量属性 / superseded / 备选方案 …" }
+  - { id: "S3", name: "复现：真写一份 ADR", hours: 1.0, status: todo, skills: "practice-cognition · grill-me", artifact: "你自己的真实决策 → 1-2 页 ADR（本跑唯一硬产出）" }
+  - { id: "S4", name: "真实分歧", hours: 0.25, status: todo, skills: "contradiction-analysis · zoom-out", artifact: "ADR 的三个工程争论：粒度 / 何时算已决定 / 与设计文档的关系" }
+  - { id: "S5", name: "拷问与修订", hours: 1.0, status: todo, skills: "grill-me · criticism-self-criticism", artifact: "被逐条拷问 → 修订版 ADR + 记录被指出的问题 ≥2 条" }
+  - { id: "S6", name: "抗遗忘", hours: 0.25, status: todo, skills: "self-evolution · auto-commit", artifact: "ADR 入库 + 第 3/10/30 天复习排程" }
+rdep_mastery:
+  - { criterion: "能提问", status: todo, evidence: "写出这个决策的下一个待验证问题（推翻条件）" }
+  - { criterion: "能判断", status: todo, evidence: "指出一份别人的 ADR 里哪条是「假权衡」——只有好处、没有代价" }
+  - { criterion: "能迁移", status: todo, evidence: "对另一个完全不同的决策再写一份 ≤300 字 ADR（不是本次练手那个）" }
+  - { criterion: "能教", status: todo, evidence: "给一个人讲清四段结构 + 为什么必须写备选，并扛住追问" }
+  - { criterion: "知边界", status: todo, evidence: "写下这份 ADR 明确不覆盖什么，以及你最没把握的一处" }
+confidence: 0.8
 summary: >
-  能力向 T1 运行单：不考证书、不做题、不背考纲——7 天 9.5 小时内，用一个你自己的真实系统当靶子，走完「质量属性 → 架构风格 → 视图 → 权衡 → 评审」的完整推演，产出可被评审的架构设计与一次真实评审。
+  方法验证跑：不考证书、不学工具链，3.5 小时把「写一份可用 ADR」真正学会——用你自己已做出的一个真实决策做复现，再用 grill-me 逐条拷问，最后用五条行为标准（能提问/能判断/能迁移/能教/知边界）判定是「学会」还是只是「熟悉」。
 ---
 
-# 系统架构 · T1 能力冲刺运行单
+# 架构决策表达 · 首个可验证对象：ADR
 
-> **不考试。** 这轮的目标是**能力证据**：你能对一个真实系统独立产出架构决策，并说清它牺牲了什么。
-> 本页是 Hugo 站点「学习进度」看板的**唯一数据源**——改 `rdep_stages` 里一行，站点进度条自动更新。
+> **为什么先拿这个「小东西」**：五条「真正学会」标准要能被检验，对象必须**小到一次能跑完、又有真实产物**。ADR 正好符合：3.5 小时、1–2 页产物、能迁移到你每个项目、还能被人当场挑刺。
 
-## S0 · 契约（已重定）
+## S0 · 契约
 
 | 项 | 内容 |
 |---|---|
-| 领域 | **系统架构**（能力向：软件系统的结构决策、质量属性权衡、演进）——**与任何考试无关** |
-| 交付物 | ① 一份**可评审的架构设计说明**（真实系统的某个切面：风格选择 + 质量属性权衡 + 视图 + 演进路径） ② 一次**设计评审**（讲给一个具体的人，或接受我的对抗性评审） |
-| 具名读者 | ① 你自己在真实项目里的决策 ② 一个会挑刺的人：同事 / 合作方 / 我 |
-| 档位 / 死线 | **T1 · 9.5 h / 7 天**（2026-10-05 → 2026-10-12） |
-| 止损条件 | 10-12 若未过 S3 闸门 → 降级交付 T0（一份架构决策备忘 + 术语表），不硬撑 |
-| 本轮明确不做 | 做题、背考纲、考证（若将来考证，另立一个运行单，见文末附录） |
-| 开放式问题 | **「给定这个真实系统的约束，我该选什么结构，以及我为它放弃了什么？」** |
+| 对象 | **一份可用的架构决策记录（ADR）**——不是「架构」这个大领域，也不是任何考试 |
+| 交付物 | 为**你已经做出的一个真实决策**写 1–2 页 ADR，并交给我按 `grill-me` 逐条拷问后的修订版 |
+| 具名读者 | ① 六个月后的你自己 ② 一个会挑刺的人（我） |
+| 预算 / 死线 | **3.5 h / 48 小时**（2026-10-05 → 2026-10-07） |
+| 本轮明确不做 | 工具链（adr-tools 等）、文档体系设计、模板美学、考试 |
+| 开放式问题 | **「一个已经做出的决定，怎么写才能让未来的我看懂当时为什么这么选、以及什么时候该推翻它？」** |
 
-## 为什么不是考试（这条要写进方法里）
+## S1 · 迷你地图（进行中，取自 Nygard 2011 原文，已实测可读）
 
-目标由**用途**定，不由**手头材料**定。我上一版之所以把靶子设成考试，是因为你 Note 库里正好躺着一份《12 周备考计划》——这是典型的「反向推导目标」错误。修正后的原则：
+**四段结构**（原文顺序）：
 
-> **先问「这个能力我要拿去做什么」，再问「学什么」；手头材料只能决定路径，不能决定目标。**
-## 主要矛盾分析（contradiction-analysis 落地）
+| 段 | 写什么 | 原文要点 |
+|---|---|---|
+| **Context** | 迫使这个决定出现的力量与约束（陈述事实，语气中立） | 「描述我们面对的力量」——不是理由，是处境 |
+| **Decision** | 我们的选择 | 「**We will …**」主动语态、完整句 |
+| **Status** | 这条决定还算不算数 | `proposed` / `accepted` / `deprecated` / `superseded` |
+| **Consequences** | 应用这个决定之后的语境 | 「**所有**后果都要列出来」——不只是好的 |
 
-**矛盾清单**
-- [纸面准备] vs [真实约束下的独立决策]
-- [输入/收集带来的熟悉感] vs [可被检验的能力]
-- [想快（3–10h）] vs [真正学会（可迁移 · 可判断 · 可教）]
-- [手头材料] vs [用途目标]（刚刚咬过我一次）
-- [我代劳搜索] vs [你亲历验证]
+**四条原文纪律**
+1. **1–2 页**——写长就没人读了。
+2. **当作写给未来开发者的一封信**——所以行文要能读，不是流水账清单。
+3. **决定被推翻时保留旧记录，标 `superseded` 并指向替代者**——历史本身是资产（知道"曾经这么决定过"仍然有价值）。
+4. **备选方案与代价必须写明**——否则读者无法判断这个决定是否还成立。
 
-**⭐ 主要矛盾：[熟悉感] vs [可迁移的能力]**
-理由：解决了它，其余各对随之缓解——输入冲动、计划癖、纸上推演、以考试为代理，都是"熟悉感"这一方占支配地位的产物。
+**好 / 坏判据**（下面 4 行是我的提炼，属 `[推断]`，不冒充原文）：
 
-**性质：非对抗性**（两侧同属一个目标：我要学会；这是设计缺陷与习惯问题，不是利益冲突，不需要消灭任何一方）。
+| ✅ 好 ADR | ❌ 坏 ADR |
+|---|---|
+| Context 里全是**约束**（成本/团队/现网/时间） | Context 里是**推销词**（"这个方案更先进"） |
+| Decision 一句话可执行（"我们将……"） | Decision 是教程或愿望 |
+| Consequences 里有**代价**、有**可度量后果**、有**推翻条件** | Consequences 只写好处（= 假权衡） |
+| 有 Status，被推翻时留旧记录 | 没有 Status（读者不知道还算不算数），旧的被删掉 |
 
-**应对方法**（接下来我将）：
-1. 把「学会」改成**行为标准**（五条：能提问 / 能判断 / 能迁移 / 能教 / 知边界），不达标就诚实称之为「熟悉」；
-2. 每个阶段**都必须产出可被检验的东西**（S3 是本轮唯一硬闸门：真实约束 + ≥2 候选 + 度量指标 + 视图）；
-3. 靶子锚在**真实系统**上，不在教材练习上；
-4. 用 `practice-cognition` 在 S3 强制走完"实践 → 认识 → 再实践"；用 `concentrate-forces` 保住 S3/S5 的 4 小时。
+## S2 · 术语（12 条，自己写定义）
 
-**⚠️ 需监控**：①「把学习变成建系统/打磨工具」是否上升为主要矛盾；②「怕自己的设计被看见」是否让 S3 退化成纸上推演。
+`ADR` · `Context / Decision / Status / Consequences` · `trade-off（权衡）` · `quality attribute（质量属性）` · `alternative（备选方案）` · `consequence（后果，含代价）` · `superseded / deprecated` · `reversibility（可逆性）` · `constraint（约束）` · `stakeholder（干系人）` · `fitness function（适应度函数）` · `technical debt（技术债）`
 
-## S1 · 领域地图（进行中 · 一页五格）
+> 规则：每条一句**你自己的话**，写不出来就是还没学会；这步站点不替你做。
 
-```text
-对象   ：系统 / 子系统 / 构件 / 连接件 / 接口 / 数据 / 部署单元 / 团队边界
-核心问题：
-  1) 面对这些约束，选哪种结构（分层 / 管道过滤 / 事件驱动 / 微核 / 服务化 / 单体先行）？
-  2) 关键质量属性是什么，它们如何互相冲突（性能 vs 一致性 vs 可修改性 vs 成本）？
-  3) 如何把结构表达清楚，让不看代码的人也能评审（4+1 视图 / C4 / 接口与数据契约）？
-  4) 如何验证这个结构扛得住（场景推演 / 原型 / 压测 / 故障演练 / ATAM 式评审）？
-  5) 如何在演进中不腐化（扩展点、技术债治理、何时重构、何时重写）？
-方法   ：质量属性场景（QAW）· 架构风格清单 · 权衡点/敏感点/风险点 · 视图模型 · 架构评审（ATAM/SAAM 式）
-工具   ：Mermaid / draw.io / C4 图 · 设计文档模板 · 评审清单（本库可直接用 Mermaid 作最小表达）
-争论   ：微服务的粒度与边界 · DDD 限界上下文是否值得 · 强一致 vs 最终一致 · 单体是否应该先行
-边界   ：不覆盖具体编码实现与项目管理流程
-```
-
-**五格的使用规则**：写不出「争论」= 只读了教科书层；写不出「质量属性」= 还没碰到真实约束。
-
-## S3 · 复现规格（本轮唯一的硬闸门）
-
-**要复现的不是一道题，而是一次真实的设计动作**：拿你自己的一个真实系统（建议：Note 库 `10_Projects/DoggyArium` 的论坛社区项目，或微微电商对接）的一个切面，走完整条链。
+## S3 · 复现规格（本跑唯一硬产出）
 
 ```text
-步骤：
-  1. 选定切面 + 写死约束（团队规模 / 预算 / 现网状态 / 不可动的东西）
-  2. 写出 3-5 条质量属性场景，格式：刺激源 → 刺激 → 制品 → 响应 → 响应度量
-     （例：「用户发帖高峰 10× 时，帖子列表 P95 仍 < 800ms」）
-  3. 给出 2 个候选结构，各自说明：满足哪些属性、牺牲哪些属性、代价是什么
-  4. 选一个，画出最小视图集（上下文 / 构件 / 部署 / 关键时序）
-  5. 用 ATAM 式自查列出：权衡点、敏感点、风险点、非风险点
-  6. 写「什么情况下我会推翻这个决定」（演进触发条件）
-事先声明的通过标准（先写，做完再比）：
-  · 质量属性场景 ≥3 条且带可度量指标（写不出度量 = 不通过）
-  · 至少给出 2 个候选结构并写出各自的牺牲（只给一个方案 = 不通过）
-  · 画出视图 ≥3 张（上下文 / 构件 / 部署或时序）
-  · 列出权衡点与风险点各 ≥2 个，且风险点附带验证方式
-  · 写出「推翻条件」≥1 条
-不通过时：补质量属性场景 → 重做（最多两次）；两次不过 → 触发止损，降级 T0
+选材：你已经做出过的一个真实决策（例：某项目用不用某技术/某结构、自研还是现成、单体还是拆分）
+产出：1-2 页 ADR，中文可，四段齐全
+先声明的通过标准（先写，做完再比）：
+  □ Context 里的约束 ≥3 条，且无推销词
+  □ Decision 用「我们将……」一句话说清
+  □ 备选方案 ≥2 个，且每个都写出代价
+  □ Consequences 含：代价 ≥1 · 可度量后果 ≥1 · 推翻条件 ≥1
+  □ 全文 ≤2 页
+  □ 有 Status
+三条不及格即整份不通过：备选 <2 / 没有任何代价 / 没有推翻条件
+不通过时：补齐 → 重写（最多两次）；两次不过 → 记录卡在哪一段，回到 S1 重读四段结构
 ```
 
-## 7 天排期（9.5 h）
+## S5 · 拷问协议（`grill-me` 执行）
 
-| 天 | 时段 | 阶段 | 交付 |
-|---|---|---|---|
-| D1 10-05 | 0.5h | S0 | 契约（本页上半，已重定） |
-| D1–D2 | 2.0h | S1 | 一页五格定稿（用自己的项目校准） |
-| D2–D3 | 1.5h | S2 | 30 条术语表（另开一篇，自己写定义） |
-| D3–D4 | 2.5h | **S3** | 真实切面的架构推演（闸门） |
-| D5 | 1.0h | S4 | 2–3 个真实争论 + 定论条件 |
-| D5–D6 | 1.5h | S5 | 架构设计说明 + 一次评审 |
-| D7 10-12 | 0.5h | S6 | 入库 + 第 3/10/30 天复习排程 + 停/续决定 |
+我按该技能规程：**一次只问一个问题、每个问题附我的建议答案、顺着决策树逐条走到底**，直到你的 ADR 扛住追问或暴露缺口。典型追问链：
 
-**压缩优先级**：S3 真实推演 > S5 产出与评审 > S1 地图 > S4 争论 > S2 术语 > S6 抗遗忘（S0 的 30 分钟永不省）。
+1. 这个决策当时**真的是被什么东西逼出来的**？写进 Context 的是约束还是理由？
+2. 备选方案为什么被否？**代价**写了吗，还是只写了缺点？
+3. 后果里哪一条是**可度量**的？谁在什么时候能测到？
+4. **什么事件出现，你会推翻它？** 写下来了吗？
+5. 六个月后的你读到这份 ADR，**第一句会误解什么**？
+6. 这条决定**可逆吗**？可逆性有没有改变你当初该不该这么决定？
 
-## 闸门与止损
+## 7 段排期（3.5 h / 48h 内）
 
-- S1 闸门：不看资料说出 5 个核心问题，并指出它们在你项目里的表现
-- S2 闸门：不看资料解释 30 条术语（用自己的话）
-- **S3 闸门：上面的六条通过标准全中**
-- S4 闸门：说得出 2 个真实争论与各自的定论条件
-- S5 闸门：**有人真的评审过你的设计**（我或一个同事），且你记录了至少 2 条被指出的问题
-- 止损：10-12 未过 S3 → 降级 T0，不留烂尾
+| 时段 | 阶段 | 交付 |
+|---|---|---|
+| T+0 | S0 0.25h | 契约（本页） |
+| T+0.25 | S1 0.5h | 四段结构与好坏判据（本页 S1 节，已交） |
+| T+1 | S2 0.25h | 12 条术语（自己写） |
+| T+1.25 | **S3 1.0h** | **你的真实 ADR（闸门）** |
+| T+2.25 | S4 0.25h | 三个真实争论 |
+| T+2.5 | **S5 1.0h** | 被拷问 → 修订版 + 记录问题 ≥2 条 |
+| T+3.5 | S6 0.25h | 入库 + 复习排程 + 五条标准判定 |
+
+**压缩优先级**：S3 产出 > S5 拷问修订 > S2 术语 > S4 争论 > S1 地图 > S6 收尾（S0 的 15 分钟不可省）。
+
+## 五条标准怎么判定（本跑的核心目的）
+
+跑完不是看"我读完了没有"，而是逐条**演示**：
+
+| 标准 | 本跑的演示动作 | 判定 |
+|---|---|---|
+| **能提问** | 写出推翻条件（S3 里的「什么情况我会改主意」） | 有 → 过 |
+| **能判断** | 找一份别人的 ADR，指出其中**只有好处没有代价**的那一条 | 指得出 → 过 |
+| **能迁移** | 换个决策再写 ≤300 字（不做完整版） | 写得出 → 过 |
+| **能教** | 讲清四段 + 为什么必须写备选，并接住追问 | 讲得住 → 过 |
+| **知边界** | 写出这份 ADR 不覆盖什么 + 你最没把握的一处 | 写得出 → 过 |
+
+**任一不过 → 本轮结论是「熟悉」，不是「学会」**——这个结论要如实写下来（它决定下一轮是加练还是往下走）。
 
 ## See Also
 
-- [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — 本运行单遵循的协议（S0 已加固：目标由用途定）
-- [[rapid-domain-entry-worksheet|Rapid Domain Entry Worksheet]] — 填空表原件
+- [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — 本跑遵循的协议（含五条标准与技能路由）
+- [[rapid-domain-entry-worksheet|Rapid Domain Entry Worksheet]] — 填空表
+- [[output-based-retention|Output-Based Retention]] — 为什么 S3/S5 是闸门
+- [[investigation-before-judgement|Investigation Before Judgement]] — Context 段「只写约束、不写理由」的纪律来源
 - [[learning-acceleration-loop|Learning Acceleration Loop]] — 回路本体
-- [[output-based-retention|Output-Based Retention]] — S5 为什么是闸门
-- [[investigation-before-judgement|Investigation Before Judgement]] — 约束与事实先查一手
 
 ## 中文速览
 
-- **这轮不考试。** 目标：7 天 9.5 小时，用**你自己的真实系统**当靶子，走完「质量属性场景 → 2 个候选结构对比 → 选型与牺牲 → 视图 → ATAM 式自查 → 推翻条件」，产出**可评审的架构设计 + 一次真实评审**。
-- **S3 是本轮唯一硬闸门**，标准六条，其中三条是「不合格即不通过」：质量属性场景必须**带可度量指标**；必须给出 **≥2 个候选结构及各自牺牲**；必须画出 **≥3 张视图**。
-- **方法教训（已固化）**：目标由**用途**定，不由手头材料定——库里有备考计划，不代表学习就是备考。
-- **进度**：写在本页 `rdep_stages`；站点看板自动更新（改一行即可）。
+- **对象**：写一份可用的 **ADR（架构决策记录）**——小、有真实产物、能迁移、能被当场挑刺。
+- **四段**：Context（只写约束）/ Decision（「我们将……」）/ Status（proposed·accepted·deprecated·**superseded**）/ Consequences（**所有**后果，含代价）。原文纪律：**1–2 页**、**写给未来的开发者**、**被推翻时保留旧记录**。
+- **S3 是唯一硬闸门**：拿你自己**已经做出**的真实决策，写 1–2 页；备选 ≥2 且各有代价、有可度量后果、有推翻条件。**三条不及格直接不通过**：备选 <2 / 没有代价 / 没有推翻条件。
+- **S5 由 `grill-me` 执行**：一次一个问题、附建议答案、逐条走完决策树。
+- **本跑真正的目的**：用这个小东西**检验五条标准**（能提问/能判断/能迁移/能教/知边界）；任一不过，结论就是「熟悉」而不是「学会」。
 
-## 附录 · 若将来要考证（本轮非目标）
+## Provenance
 
-仅作信息留存：2026 年软考上半年 5/23–26、下半年 10/24–27；系统架构设计师三科（综合知识 / 案例分析 / 论文），全机考，各科满分 75、通常 45 合格。**报名窗口与最新大纲须以[官方通告](https://www.ruankao.org.cn/)为准**；若决定考证，另立运行单（那才是应试目标，方法不同）。
+四段结构、`We will …` 主动语态、1–2 页、superseded 保留旧记录等**均为 Nygard 2011 原文实测内容**（2026-10-05 抓取，HTTP 200）。「好/坏判据」四行是本库提炼（`[推断]`）。上一版曾引用 SEI ATAM 页面，**实测取不到 → 已撤除引用**（不核实不引用）。

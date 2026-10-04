@@ -62,7 +62,19 @@
           {{ end }}
         </ol>
 
-        <p class="run-link"><a href="{{ .RelPermalink }}">打开运行单 →</a>　<span class="dim">进度写在该页 frontmatter 的 <code>rdep_stages</code>，改一行即更新</span></p>
+        {{ with .Params.rdep_mastery }}
+          <h4 class="mastery-title">「真正学会」五条标准自检</h4>
+          <ul class="mastery">
+            {{ range . }}
+              {{ $ms := printf "%v" .status }}
+              <li class="m-{{ $ms }}">
+                <span class="mname">{{ .criterion }}</span>
+                <span class="mstat">{{ if eq $ms "done" }}✅ 已验证{{ else if eq $ms "doing" }}🔄 验证中{{ else }}⬜ 未验证{{ end }}</span>
+                <span class="mev">{{ .evidence }}</span>
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}        <p class="run-link"><a href="{{ .RelPermalink }}">打开运行单 →</a>　<span class="dim">进度写在该页 frontmatter 的 <code>rdep_stages</code>，改一行即更新</span></p>
       </div>
     {{ end }}
   {{ else }}
