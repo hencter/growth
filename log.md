@@ -4,6 +4,16 @@
 
 ---
 
+## [2026-10-05] session | 建库：OKF v0.2 + 学习集群 14 篇 + 27 技能 + 定名知行 → §7
+
+**本次会话全貌**：
+- **入**：从本机 Note 库**只读**抽取「成长与学习」资产（3 名只读子代理并行侦察：学习类文档 13 + 元认知/知识管理 18 + 技能 36 个），Note 库全程零写入。
+- **出**：`/learning/` 集群 **14 篇**原子笔记 + 根 hub [[learning|学习中枢]]；**23 个技能**导入 + hugozh.cn 的 `hugo-static-site`（13 文件 / SHA-256 **13/13** 通过）；[[imported-skills|技能导入台账]]；OKF v0.1 → **v0.2** schema 迁移（AGENTS.md v1.9.0）。
+- **校验**：真实断链 0 · 孤儿 0 · 版本同步 ✓ · 升格审计 0 欠债 · §2.6 全量数字脚本重算 · 提交前敏感信息扫描（266 个跟踪文件，2 处误报已人工确认属实为代码示例）· `.env` 与 `user-config.md` 均未进库。
+- **身份**：owner = **亦幸**，AI 管家 = **知行**（`_identity/user-config.md`，gitignored；`Nova` 保留为结构性标识），初始化闭环 `pending_personalization: false`。
+- **发布**：`4c3ec71..96fc3aa` 已推送 `origin/main`（github.com/hencter/growth），本地与远端哈希一致。
+- **下一轮待办**：① 用户给出第一个真实学习题目 → 跑通学习回路并产出笔记；② 可选：把 Note 库那份旧 `hugo-static-site` 副本（12 文件 / 3 处哈希不符 / 缺 INSTALL-PROMPT.txt）对齐成新版（需用户授权写 Note 库）；③ 可选：27 个技能约 2,600 token 的会话固定开销是否收窄。
+
 ## [2026-10-05] init | 自主定名：知行（AI 管家）· owner 亦幸 → [[learning-acceleration-loop]]
 
 用户委托自行取名（原话「你自己起名字吧」），`_identity/user-config.md`：`nova_name` = **知行**，`owner_name` = **亦幸**，`pending_personalization: false` —— 本库初始化完成。
