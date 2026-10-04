@@ -25,7 +25,7 @@ rdep_depth: "S-1 · 诊断"
 rdep_budget_hours: 0.5
 rdep_started: 2026-10-05
 rdep_deadline: 2026-10-06
-rdep_next: "拷问 Q2：只比 Python vs Rust 把两个变量混在一起了（信号质量 + 静态类型/性能）——把 Go / TypeScript / Java 放进来，还会选 Rust 吗？"
+rdep_next: "拷问 Q3（溯源）：你那段话里哪几条是查过源的、哪几条是印象、哪几条是推断？"
 rdep_stages:
   - { id: "S-1", name: "起点诊断", hours: 0.5, status: done, skills: "investigation-first · criticism-self-criticism", artifact: "对象=架构；两份原始文档已读；三条回答已收（评估依据=他的表达）" }
   - { id: "S0", name: "定义对象", hours: 0.25, status: done, skills: "concentrate-forces", artifact: "目标由他的回答定出：把已有的架构判断装上词汇与框架，并能书面辩护（不是我给的菜单）" }
@@ -120,6 +120,19 @@ summary: >
 **本轮主要矛盾随之更新**：从「熟悉感 vs 可迁移能力」→ **「口头判断 vs 书面可辩护」**。
 **下一轮唯一硬产出**：把他第 1 条回答写成 1 页 ADR（Context＝生态不完善且 token 敏感 / Decision＝选 Rust / Consequences＝token 开销 + 改造累 / Status / 推翻条件），然后按 `grill-me` 逐条拷问。
 **副产品**：他自问的「最佳通知方案」是一个**真实待研究问题**，适合作为下一个 RDEP 运行（硬约束＝一定能触达用户；备选＝公众号 / 站内 / 邮件；分阶段＝邮件先行）。
+## 靶场记录：证据纪律（2026-10-05）
+
+**事件**：学习者在 Q2 回答中给出一条**方向相反的事实错误**——称 Rust「源于 C 语言之父的设计初衷，旨在为云原生时代构建」。查源（Rust / Go / C 维基条目）后更正：Rust 由 **Graydon Hoare 于 2006 年在 Mozilla** 创造；**C 之父 Dennis Ritchie 与此无关**；而 **Ken Thompson（C 时代传奇）在 Go 的设计团队里**。
+
+**性质判定**：这**不是**判断错误——同一次回答里他对 Go GC 的判断是对的，crates 跨形态复用也是真的。它暴露的是一个**独立短板**：
+
+| 能力 | 状态 |
+|---|---|
+| 判断力（权衡、找约束、分阶段） | ✅ 已有，且本轮再次验证 |
+| **证据纪律（引用前先核对来源）** | ⚠️ **新暴露的短板**，本轮训练目标 |
+| 词汇与框架 | 🔄 补齐中（词汇对照已产出） |
+
+**训练动作**：此后每条技术主张标注 **[查过源] / [印象] / [推断]**；不能溯源的一律写成"判断"，不写成"事实"。载体：[[investigation-before-judgement|Investigation Before Judgement]]（已加本案）。
 ## See Also
 
 - [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — 已加入 S-1 与上述三条规则

@@ -75,7 +75,13 @@ The ACH step is what keeps move 1 from degenerating into confirmation-seeking wi
 - **Closing on a single source** — one link is an anecdote; two independent sources is a signal.
 - **Skipping the artefact check** — the difference between "I wrote it" and "it is correct".
 
-## See Also
+## Case: the authority claim that inverted the facts (2026-10-05)
+
+A learner with strong systems judgement argued Rust over Python and Go — and, in the same breath, justified it with "Rust comes from the design intent of C''s creator, aimed at the cloud-native era." Both halves are false, and the second is **inverted**: Rust was created by Graydon Hoare at Mozilla (2006; Mozilla sponsorship 2009; stable 1.0 in 2015) with goals of performance, type safety, concurrency and memory safety **without garbage collection**; the C-world legend **Ken Thompson sits on Go''s design team**, not Rust''s.
+
+The lesson is not "the learner was wrong" — the trade-off reasoning was sound (Go''s GC is a real differentiator; crate-level reuse across desktop and server is a real benefit). The lesson is that **one unchecked authority claim can discredit an otherwise correct argument**. Authority-flavoured sentences ("X was designed by the creator of Y", "built for the Z era") are repeated far more often than they are verified, which makes them the highest-yield targets for a source check.
+
+**Practice:** mark each claim as **[sourced] / [impression] / [inference]** before it enters a document; a claim that cannot be sourced is written as a judgement, never as a fact.## See Also
 
 - [[source-credibility-and-observation-stance|Source Credibility and Observation Stance]] — the L0–L5 grading behind A–D
 - [[metacognition-monitoring-protocol|Metacognition Monitoring Protocol]] — in-flight self-checks, post-hoc calibration
