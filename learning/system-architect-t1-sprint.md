@@ -21,10 +21,10 @@ sources:
     title: "Rapid Domain Entry Protocol（本库）"
 rdep_run: true
 rdep_field: "软件/系统架构（从「我不懂架构」到「能书面辩护」）"
-rdep_depth: "S-1 · 诊断"
-rdep_budget_hours: 0.5
+rdep_depth: "T0+ · 方法验证跑"
+rdep_budget_hours: 4.0
 rdep_started: 2026-10-05
-rdep_deadline: 2026-10-06
+rdep_deadline: 2026-10-07
 rdep_next: "S5 能教（本轮唯一缺口）：用你自己的话，把 ADR-001 讲给一个不懂架构的人——我来当那个人"
 rdep_stages:
   - { id: "S-1", name: "起点诊断", hours: 0.5, status: done, skills: "investigation-first · criticism-self-criticism", artifact: "对象=架构；两份原始文档已读；三条回答已收（评估依据=他的表达）" }
@@ -37,10 +37,10 @@ rdep_stages:
   - { id: "S6", name: "抗遗忘", hours: 0.25, status: todo, skills: "self-evolution · auto-commit", artifact: "入库 + 第 3/10/30 天复习" }
 rdep_mastery:
   - { criterion: "能提问", status: done, evidence: "他提出「最佳通知方案是什么」——自己的问题，来自他自己的系统" }
-  - { criterion: "能判断", status: done, evidence: "两条纠正我的读法：①成本视角优于算力视角 ②通知优先于数据模型；均给出依据" }
+  - { criterion: "能判断", status: done, evidence: "**三次**修正师友的模型：①成本视角优于算力视角 ②通知优先于数据模型 ③成本须分两层（一次性/经常性）" }
   - { criterion: "能迁移", status: doing, evidence: "三条回答都在他自己的系统内；跨情境样本待补" }
   - { criterion: "能教", status: todo, evidence: "等他讲给一个人并扛住追问（目前无样本）" }
-  - { criterion: "知边界", status: done, evidence: "三次主动自报：ADR 不懂 / 「我不懂架构」/「没法验证的是大量 Agent」（样本=3）" }
+  - { criterion: "知边界", status: done, evidence: "六次主动自报（样本=6）：ADR 不懂 · 不懂架构 · 没法验证大量 Agent · 不知我是否认同 · 暂无补充 · 主模型不擅长 Rust" }
 confidence: 0.9
 summary: >
   当前真实状态：尚无校准过的学习对象。上一次运行（ADR）已撤回，原因是建立在我未校准的术语上。本轮先做 S-1 起点诊断——用学习者自己的话定位起点，评估只依据他的回答，不依据他是否完成我派发的作业。
@@ -177,6 +177,13 @@ summary: >
 **还有两条具体训练项**：①输入通道校验（语音/AI 转写的断言先核对来源）②断言范围（绝对断言改成带条件的断言）。
 
 **S4 待办（候选分歧，任选其一表达立场即可）**：编译期安全 vs 迭代速度（同一属性内部拉扯）· 单人/小团队要不要上微服务 · 自建 vs 托管（成本与可控性）。
+## 自纠：看板数据漂移（2026-10-05）
+
+**现象**：站点看板显示「预算 **0.5** h · 已完成 **2.5** h（**500%**）」、领域标签停在「S-1 · 诊断」、死线显示「剩 0 天」。
+**根因（我的错，不是他的）**：我逐轮回填阶段状态（S-1→S3 完成＝2.5h）时，**没有同步 `rdep_budget_hours`（仍是 S-1 版的 0.5）、`rdep_depth`、`rdep_deadline`**。派生指标（完成度百分比）的全部输入没有一起更新 → 数字开始撒谎。
+**修复**：预算 0.5 → **4.0**（S-1 0.5 + S0 0.25 + S1 0.5 + S2 0.25 + S3 1.0 + S4 0.25 + S5 1.0 + S6 0.25）；depth 改为「T0+ · 方法验证跑」；死线 10-06 → **10-07**；五条标准的证据文本同步（能判断＝三次修正、知边界＝六次自报）。
+**给模板加了护栏**：`progress.html` 现在检测 `已完成 > 预算` 时**不再画 500% 的进度条**，改为显示「⚠️ 数据不一致」并钳制到 100%——**工具在输入错时必须说"我错了"，而不是画一个漂亮的假数字**。
+**教训（已升格 §2.6）**：派生指标（完成度、比率）在**任一输入变化后都要重新核验**；一个撒谎的看板比没有看板更糟。这条与「交付前重算计数」并列，写进 §2.6。
 ## See Also
 
 - [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — 已加入 S-1 与上述三条规则

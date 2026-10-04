@@ -24,6 +24,8 @@
       {{ if gt $budget 0.0 }}{{ $pct = div (mul $done 100.0) $budget }}{{ end }}
       {{ $days := 0 }}
       {{ with .Params.rdep_deadline }}{{ $days = div (sub (time .).Unix now.Unix) 86400 }}{{ end }}
+      {{ $inconsistent := gt $done $budget }}
+      {{ if $inconsistent }}{{ $pct = 100.0 }}{{ end }}
 
       <div class="run">
         <div class="run-head">
@@ -39,6 +41,7 @@
           {{ end }}
         </div>
 
+        {{ if $inconsistent }}<p class="badge warn">⚠️ 数据不一致：已完成 {{ printf "%.1f" $done }}h ＞ 预算 {{ $budget }}h —— 请同步 frontmatter</p>{{ end }}
         <div class="bar" role="img" aria-label="阶段完成度 {{ printf "%.0f" $pct }}%">
           <span style="width: {{ printf "%.1f" $pct }}%"></span>
         </div>

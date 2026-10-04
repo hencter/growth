@@ -177,7 +177,7 @@ Two query modes (inspired by GraphRAG, arXiv:2404.16130) — strategy depends on
 
 **Protocol**:
 1. Identify all numeric claims in the output
-2. **Compute with a calculator**: run `pwsh` with `python`/`node`/PowerShell arithmetic — never in-head. (Allowed under §9; `python` is permitted.) **Counts and sizes are recomputed at delivery time — never carried over from a mid-task measurement.**
+2. **Compute with a calculator**: run `pwsh` with `python`/`node`/PowerShell arithmetic — never in-head. (Allowed under §9; `python` is permitted.) **Counts and sizes are recomputed at delivery time — never carried over from a mid-task measurement, and derived metrics (progress %, ratios) are re-verified after every input change: a dashboard that reports 500% is worse than no dashboard.**
 3. **Verify retrieved data**: re-derive or cross-check any figure read from sources before citing; if verification fails, say so explicitly rather than guessing
 
 ---
