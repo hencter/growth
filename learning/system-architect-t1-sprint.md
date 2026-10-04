@@ -25,7 +25,7 @@ rdep_depth: "S-1 · 诊断"
 rdep_budget_hours: 0.5
 rdep_started: 2026-10-05
 rdep_deadline: 2026-10-06
-rdep_next: "拷问 Q2：那份写着 FastAPI 的架构文档怎么处理？（更新 / 标 superseded / 不处理）"
+rdep_next: "拷问 Q2：只比 Python vs Rust 把两个变量混在一起了（信号质量 + 静态类型/性能）——把 Go / TypeScript / Java 放进来，还会选 Rust 吗？"
 rdep_stages:
   - { id: "S-1", name: "起点诊断", hours: 0.5, status: done, skills: "investigation-first · criticism-self-criticism", artifact: "对象=架构；两份原始文档已读；三条回答已收（评估依据=他的表达）" }
   - { id: "S0", name: "定义对象", hours: 0.25, status: done, skills: "concentrate-forces", artifact: "目标由他的回答定出：把已有的架构判断装上词汇与框架，并能书面辩护（不是我给的菜单）" }
