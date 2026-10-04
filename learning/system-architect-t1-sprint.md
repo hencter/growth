@@ -25,13 +25,13 @@ rdep_depth: "S-1 · 诊断"
 rdep_budget_hours: 0.5
 rdep_started: 2026-10-05
 rdep_deadline: 2026-10-06
-rdep_next: "拷问 Q5（推翻条件）：什么事件出现，你会推翻「选 Rust」这个决定？（ADR 最后一格空白）"
+rdep_next: "S5 能教（本轮唯一缺口）：用你自己的话，把 ADR-001 讲给一个不懂架构的人——我来当那个人"
 rdep_stages:
   - { id: "S-1", name: "起点诊断", hours: 0.5, status: done, skills: "investigation-first · criticism-self-criticism", artifact: "对象=架构；两份原始文档已读；三条回答已收（评估依据=他的表达）" }
   - { id: "S0", name: "定义对象", hours: 0.25, status: done, skills: "concentrate-forces", artifact: "目标由他的回答定出：把已有的架构判断装上词汇与框架，并能书面辩护（不是我给的菜单）" }
   - { id: "S1", name: "迷你地图", hours: 0.5, status: done, skills: "investigation-first · karlmarx-skill", artifact: "词汇地图已产出 → [[architecture-vocabulary-from-your-answers]]（他的三条回答 → 标准词汇）" }
-  - { id: "S2", name: "语言", hours: 0.25, status: doing, skills: "obsidian-markdown", artifact: "词汇对照已出；下一步他用词汇复述自己的系统（一次一句话）" }
-  - { id: "S3", name: "复现", hours: 1.0, status: doing, skills: "practice-cognition · grill-me", artifact: "ADR-001 已立（Status=accepted）；Q1 已答（Python 被否理由＝对 AI 的层级歧义 + 冗余文件）" }
+  - { id: "S2", name: "语言", hours: 0.25, status: done, skills: "obsidian-markdown", artifact: "词汇对照已出，且他已用标准词回答四轮拷问（备选/可度量/推翻条件）" }
+  - { id: "S3", name: "复现", hours: 1.0, status: done, skills: "practice-cognition · grill-me", artifact: "**闸门通过**：ADR-001 四段齐 + 备选齐 + 可度量后果 + 推翻条件（Q1–Q5 五轮拷问完成）" }
   - { id: "S4", name: "真实分歧", hours: 0.25, status: todo, skills: "contradiction-analysis · zoom-out", artifact: "该对象上 2 个真实争论 + 定论条件" }
   - { id: "S5", name: "产出与拷问", hours: 1.0, status: todo, skills: "grill-me · criticism-self-criticism", artifact: "产出 + 被拷问后的修订（含他指出我的问题）" }
   - { id: "S6", name: "抗遗忘", hours: 0.25, status: todo, skills: "self-evolution · auto-commit", artifact: "入库 + 第 3/10/30 天复习" }
@@ -162,6 +162,21 @@ summary: >
 - **能判断 ↑（第 3 次修正师友的模型）**：他把成本拆成「开发期一次性 / 运行期经常性」两层——这是 capex / opex 的正确区分，我上一版错了。
 - **知边界 ↑（第 6 次自报）**：「暂时没有其他要补充的了」——明确说出知识边界。
 - **跟踪项加一条：断言范围（量词）** ——「不会出现错误代码」「未来也不太可能推翻」这类**绝对断言**需要改成**带条件的断言**。与「输入通道校验」并列为本轮两条具体训练项。
+## S3 闸门通过 + 五条标准现状（2026-10-05）
+
+**S3 闸门：通过**（六条标准全中、三条否决项全无）——ADR-001 成为本轮唯一硬产出，且它是**在五轮拷问中长出来的**，不是我代笔的。
+
+| 标准 | 状态 | 证据 |
+|---|---|---|
+| 能提问 | ✅ | 自问「最佳通知方案」 |
+| 能判断 | ✅ **↑↑** | **三次修正师友的模型**（成本视角优于算力；通知优先于数据模型；成本要分两层）＋ 在证据前主动收回主张 |
+| 能迁移 | 🔄 | 待一个**不属于他自己系统**的情境 |
+| **能教** | ⬜ | **本轮唯一缺口** → 下一动作 |
+| 知边界 | ✅ | 六次主动自报（含「暂时没有其他要补充的了」） |
+
+**还有两条具体训练项**：①输入通道校验（语音/AI 转写的断言先核对来源）②断言范围（绝对断言改成带条件的断言）。
+
+**S4 待办（候选分歧，任选其一表达立场即可）**：编译期安全 vs 迭代速度（同一属性内部拉扯）· 单人/小团队要不要上微服务 · 自建 vs 托管（成本与可控性）。
 ## See Also
 
 - [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — 已加入 S-1 与上述三条规则
