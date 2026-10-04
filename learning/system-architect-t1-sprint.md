@@ -25,7 +25,7 @@ rdep_depth: "S-1 · 诊断"
 rdep_budget_hours: 0.5
 rdep_started: 2026-10-05
 rdep_deadline: 2026-10-06
-rdep_next: "拷问 Q3（溯源）：你那段话里哪几条是查过源的、哪几条是印象、哪几条是推断？"
+rdep_next: "拷问 Q4（可度量）：这条决策的后果里哪一条可度量？谁在什么时候能测到？（他已给出候选：首次通过率 / 重试次数 / ¥每帖 / ¥每 Agent 回复）"
 rdep_stages:
   - { id: "S-1", name: "起点诊断", hours: 0.5, status: done, skills: "investigation-first · criticism-self-criticism", artifact: "对象=架构；两份原始文档已读；三条回答已收（评估依据=他的表达）" }
   - { id: "S0", name: "定义对象", hours: 0.25, status: done, skills: "concentrate-forces", artifact: "目标由他的回答定出：把已有的架构判断装上词汇与框架，并能书面辩护（不是我给的菜单）" }
@@ -133,6 +133,22 @@ summary: >
 | 词汇与框架 | 🔄 补齐中（词汇对照已产出） |
 
 **训练动作**：此后每条技术主张标注 **[查过源] / [印象] / [推断]**；不能溯源的一律写成"判断"，不写成"事实"。载体：[[investigation-before-judgement|Investigation Before Judgement]]（已加本案）。
+## Q3 已答 + 两条新证据（2026-10-05）
+
+**Q3 答案**：那条错误主张的来源是**输入通道**——语音转写把「Go」写成了「Rust」；学习者一轮后自查发现并澄清。其余主张标注完成：
+
+| 主张 | 标注 |
+|---|---|
+| Go 的 GC 机制不理想 | **[印象]**（可查数据：GC 停顿 / 延迟分布） |
+| Go 出自 Unix/C 老将之手、为网络化多核而设计 | **[查过源]**（Go 维基 + Thompson 维基 + go.dev FAQ），需两处精确化 |
+| crates 跨形态分包 | **[查过源]**（事实） |
+| 招聘 Rust 程序员更具可行性 | **已被他本人收回**（「我知道 Rust 程序员不好招」）✅ |
+
+**新增证据（评估用）**
+- **能判断 ↑**：他在证据面前**主动收回**自己的主张（招聘那条）——**依据变化而更新**，这是判断力的核心动作，不是让步。
+- **知边界 ↑（第 5 次自报）**：他直接问「**我不知道你是否认同**」——不确定处明说，而不是先假设对方同意。
+
+**跟踪项（替代原"证据纪律"）**：**输入通道校验**——语音/AI 转写的断言入档前必须核对来源。
 ## See Also
 
 - [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — 已加入 S-1 与上述三条规则
