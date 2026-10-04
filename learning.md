@@ -3,7 +3,7 @@ type: Index
 title: "学习 — 加速学习方法论"
 aliases:
   - "学习中枢"
-description: 本库主线集群：把「学得更快」沉淀成可复用的方法与可加载的技能——14 篇原子知识点 + 27 个技能的路由表。
+description: 本库主线集群：把「学得更快」沉淀成可复用的方法与可加载的技能——15 篇原子知识点 + 27 个技能的路由表。
 tags: [learning, index, hub, method]
 generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:45:00+08:00 }
 id: "20261005T054500"
@@ -34,11 +34,11 @@ summary: >
 2. **没有调查就没有发言权**——先查一手，再下判断：[[investigation-before-judgement|先调查后判断]]。
 3. **输出是检验，不是副产品**——讲不出来就是没学会：[[output-based-retention|输出式留存]]。
 
-## 知识本体（14 篇）
+## 知识本体（15 篇）
 
 | 场景 | 先读这一篇 |
 |------|-----------|
-| 想快进入一个全新领域 | [[naval-learning-method\|纳瓦尔学习法]] · [[sandwich-teaching-method\|三明治教学法]] |
+| **要快速进入一个全新领域** | **[[rapid-domain-entry-protocol\|快速进入领域协议]]**（三档预算 × 七阶段闸门，配 [[rapid-domain-entry-worksheet\|填空表]]）· [[naval-learning-method\|纳瓦尔学习法]] · [[sandwich-teaching-method\|三明治教学法]] |
 | 拆不动问题、只会照抄别人做法 | [[first-principles-thinking\|第一性原理]] |
 | 信息太多、越看越没主见 | [[independent-thinking-against-information-overload\|信息过载下的独立思考]] · [[source-credibility-and-observation-stance\|信源分级与观测立场]] |
 | 判断总出错、事后才发现 | [[investigation-before-judgement\|先调查后判断]] · [[metacognition-monitoring-protocol\|元认知监控协议]] |
@@ -104,4 +104,4 @@ summary: >
 
 ## 数据口径
 
-本页所有数值（14 篇、27 个技能等）均在交付前用计算脚本复核，详见 `log.md` 对应条目。
+本页所有数值（15 篇、27 个技能等）均在交付前用计算脚本复核，详见 `log.md` 对应条目。

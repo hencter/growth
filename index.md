@@ -43,6 +43,7 @@ graph TD
 
 ### 📈 [[learning|学习 — 加速学习方法论]]
 本库的主线：把「学得更快」沉淀成可复用的方法。原子知识点 + 情景化技能（`.agents/skills/`）。
+- [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — **进入任何一个新领域的执行协议**：三档预算（3h / 9.5h / 29.5h）× 七阶段 × 五道闸门，配套 [[rapid-domain-entry-worksheet|填空表]]
 - [[learning-acceleration-loop|Learning Acceleration Loop]] — 七阶段学习回路：提问 → 查一手 → 拆解 → 骨架 → 验证 → 输出 → 反馈
 - [[naval-learning-method|Naval Learning Method]] — 极速研究法四步 + 独特阅读法三招
 - [[first-principles-thinking|First Principles Thinking]] — 回归本源重建，而不是类比照抄
