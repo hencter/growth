@@ -25,7 +25,7 @@ rdep_depth: "T0+ · 方法验证跑"
 rdep_budget_hours: 4.0
 rdep_started: 2026-10-05
 rdep_deadline: 2026-10-07
-rdep_next: "S5 能教（本轮唯一缺口）：用你自己的话，把 ADR-001 讲给一个不懂架构的人——我来当那个人"
+rdep_next: "能迁移（最后一项）：对一个不属于你的开源系统做一次 ADR 逆向工程——用公开证据写出它的 境/择/存/果/备选/推翻条件"
 rdep_stages:
   - { id: "S-1", name: "起点诊断", hours: 0.5, status: done, skills: "investigation-first · criticism-self-criticism", artifact: "对象=架构；两份原始文档已读；三条回答已收（评估依据=他的表达）" }
   - { id: "S0", name: "定义对象", hours: 0.25, status: done, skills: "concentrate-forces", artifact: "目标由他的回答定出：把已有的架构判断装上词汇与框架，并能书面辩护（不是我给的菜单）" }
@@ -33,13 +33,13 @@ rdep_stages:
   - { id: "S2", name: "语言", hours: 0.25, status: done, skills: "obsidian-markdown", artifact: "词汇对照已出，且他已用标准词回答四轮拷问（备选/可度量/推翻条件）" }
   - { id: "S3", name: "复现", hours: 1.0, status: done, skills: "practice-cognition · grill-me", artifact: "**闸门通过**：ADR-001 四段齐 + 备选齐 + 可度量后果 + 推翻条件（Q1–Q5 五轮拷问完成）" }
   - { id: "S4", name: "真实分歧", hours: 0.25, status: todo, skills: "contradiction-analysis · zoom-out", artifact: "该对象上 2 个真实争论 + 定论条件" }
-  - { id: "S5", name: "产出与拷问", hours: 1.0, status: todo, skills: "grill-me · criticism-self-criticism", artifact: "产出 + 被拷问后的修订（含他指出我的问题）" }
+  - { id: "S5", name: "产出与拷问", hours: 1.0, status: done, skills: "grill-me · criticism-self-criticism", artifact: "**闸门通过**：闭卷能教 + 追问接住（含他纠正师友）" }
   - { id: "S6", name: "抗遗忘", hours: 0.25, status: todo, skills: "self-evolution · auto-commit", artifact: "入库 + 第 3/10/30 天复习" }
 rdep_mastery:
   - { criterion: "能提问", status: done, evidence: "他提出「最佳通知方案是什么」——自己的问题，来自他自己的系统" }
   - { criterion: "能判断", status: done, evidence: "**三次**修正师友的模型：①成本视角优于算力视角 ②通知优先于数据模型 ③成本须分两层（一次性/经常性）" }
-  - { criterion: "能迁移", status: doing, evidence: "三条回答都在他自己的系统内；跨情境样本待补" }
-  - { criterion: "能教", status: todo, evidence: "等他讲给一个人并扛住追问（目前无样本）" }
+  - { criterion: "能迁移", status: doing, evidence: "**唯一未完成项**：待对一个不属于他的系统做 ADR 逆向工程（建议 Lemmy：他库里的数据库参考）" }
+  - { criterion: "能教", status: done, evidence: "闭卷讲四段（山谷比喻）+ **从第一性推出备选栏为何不能空**（结果论不可用→必须记录备选与被否理由）+ 纠正师友对「境」的表述" }
   - { criterion: "知边界", status: done, evidence: "**七次**主动自报（样本=7）：ADR 不懂 · 不懂架构 · 没法验证大量 Agent · 不知我是否认同 · 暂无补充 · 主模型不擅长 Rust · **主动交代「我是看着文档回答的」**" }
 confidence: 0.9
 summary: >
@@ -235,6 +235,26 @@ summary: >
 | 🎯 更站得住的顺序 | **按「信息最易丢失者优先」**：**择**（一句话决定）→ **备选**（2 个 + 各自代价 + 被否理由）→ **境**（3 条约束）→ **果**（代价 + 可度量后果 + 推翻条件）。理由：**备选与被否理由是记忆最先消失的部分**，约束与后果事后还能补 |
 
 **`能教` 仍为 🔄**：追问已获回应但尚未见过调整；且「备选栏为什么不能空」仍未答。
+## S5 追问 #2 已答：`能教` **判定通过**（2026-10-05）
+
+**问**：备选栏空着，后果栏会退化成什么？
+**他的回答（要点）**：「我不能通过回溯结果来评估选择是否值得，因为这种评估**不具备确定性**，无法断定选择的好坏。**任何选择都利弊共存**，决策后产生的**只有概率性的结果**。当前的状况并非代表我被迫选择，而是指在既定境况下我能做出的选择——这或许才是最佳状态。」
+
+**判定：✅ 通过。** 理由（三条硬证据，不含客套）：
+
+| 证据 | 说明 |
+|---|---|
+| 1. 从**第一性**推出备选栏的意义 | 他没背"备选栏要写理由"，而是推出：**用结果反推决策质量是无效的**（结果只有概率性）→ 所以必须记录**当时的备选与被否理由**，让判断回到决策时点。这正是备选栏的用途 |
+| 2. **利尽共存 + 概率性结果** | 把「权衡」与「不确定性」两件事用一句话说清——比背定义强 |
+| 3. **纠正师友** | 他不同意我"被迫"的表述，改为「**在既定境况下我能做出的选择**」，并指出那或许才是最佳状态 |
+
+**我接受他的纠正（并给一处精确化）**：
+- 「被迫」是我的用词，偏"宿命"；他的说法**更利于决策诚实**——因为它提醒你：**你有选项，所以这是决策，不是命运**。
+- 精确化：Context 里记录的是**力量与约束（事实）**；"可选集合"是这些约束的**结果**，通常落在 **Alternatives**。
+- 补一条推论：**若真的只有一条路，那不需要 ADR，需要的是"约束记录"——"有选择"才是 ADR 成立的前提。**
+
+**遗留（不构成不通过，但记在账上）**：Consequences 要写**全部**后果（含**好处**），不只是代价——这一条已重申两次。
+**五条标准现状**：能提问 ✅ · 能判断 ✅ · 知边界 ✅ · **能教 ✅** · **能迁移 ⬜（唯一未完成）**。
 ## See Also
 
 - [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — 已加入 S-1 与上述三条规则
