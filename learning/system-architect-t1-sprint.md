@@ -20,14 +20,14 @@ sources:
     resource: "/learning/rapid-domain-entry-protocol.md"
     title: "Rapid Domain Entry Protocol（本库）"
 rdep_run: true
-rdep_field: "起点诊断（S-1）· 尚未校准的学习对象"
+rdep_field: "软件/系统架构（自述「我不懂架构」，请求从头教）"
 rdep_depth: "S-1 · 诊断"
 rdep_budget_hours: 0.5
 rdep_started: 2026-10-05
 rdep_deadline: 2026-10-06
-rdep_next: "等你用自己的话说一件「想搞明白但还没搞明白」的事——不给选项、不预设术语"
+rdep_next: "等他一件事：反驳我对论坛项目架构的一处解读，或回答第一课三问中的任意一问（不要他做作业，只要他的判断）"
 rdep_stages:
-  - { id: "S-1", name: "起点诊断", hours: 0.5, status: doing, skills: "investigation-first · criticism-self-criticism", artifact: "起点测定：学习者自己的话（不是选择题答案）" }
+  - { id: "S-1", name: "起点诊断", hours: 0.5, status: doing, skills: "investigation-first · criticism-self-criticism", artifact: "已命名对象（架构）；已读其两份原始架构文档（第一手）；第一课已开跑" }
   - { id: "S0", name: "定义对象", hours: 0.25, status: todo, skills: "concentrate-forces", artifact: "由学习者一句话说出的对象（我出菜单=不合格）" }
   - { id: "S1", name: "迷你地图", hours: 0.5, status: todo, skills: "investigation-first · karlmarx-skill", artifact: "五格地图（内容随对象而定）" }
   - { id: "S2", name: "语言", hours: 0.25, status: todo, skills: "obsidian-markdown", artifact: "只用他已经能用的词；新术语先测再用" }
@@ -40,7 +40,7 @@ rdep_mastery:
   - { criterion: "能判断", status: todo, evidence: "等他对自己或别人的某个说法做出判断（目前 0 次）" }
   - { criterion: "能迁移", status: todo, evidence: "等他把它用到另一个情境（目前无样本）" }
   - { criterion: "能教", status: todo, evidence: "等他讲给一个人并扛住追问（目前无样本）" }
-  - { criterion: "知边界", status: done, evidence: "他主动说「ADR 是什么我都不知道」——五条里最稀有的一条，已成立（一次自报，样本=1）" }
+  - { criterion: "知边界", status: done, evidence: "两次主动自报：①「ADR 是什么我都不知道」②「我不懂架构」（样本=2，行为一致）" }
 confidence: 0.9
 summary: >
   当前真实状态：尚无校准过的学习对象。上一次运行（ADR）已撤回，原因是建立在我未校准的术语上。本轮先做 S-1 起点诊断——用学习者自己的话定位起点，评估只依据他的回答，不依据他是否完成我派发的作业。
@@ -96,6 +96,17 @@ summary: >
 2. **评估只依据学习者的表达**：分析他的回答、判断、问题；**不**把「是否完成我派发的作业」当作学习证据。
 3. **不引入未校准的术语**：他不能用自己的话解释的术语，先问、先教，**不得**直接用来搭运行单（ADR 事件即为此）。
 
+## S-1 进展（2026-10-05）
+
+**他给了什么**：对象（**架构**）＋ 状态（**「我不懂架构」**）＋ 请求（**从头教**）。对照评估规则：**部分充分**——对象有了、真实情境有了（他自己的项目），但**还没有属于他自己的问题**。
+
+**我做了什么（investigation-first：先调查再开口）**：
+- 读了两份第一手材料（他自己的架构文档，只读未改），据此写出 [[architecture-what-counts|第一课]] 的「把镜头对准你自己的系统」一节。
+- 教法：类比（承重墙）→ 三句话定义 → **用他的系统做示范解读**，并**明确邀请反驳**（反驳比讲对更有价值）。
+
+**关键判断**：他**已经有架构文档**，却自述不懂架构——两头都真。合理读法是：文档是"存在的"，但还不是"他能辩护的"；**从「能辩护/能推翻」入手，比从名词定义入手更接近真问题**。
+
+**我等他给的一件事**（不是作业，是判断）：指出我解读里**一处说错的地方**，或回答三问中任意一问。
 ## See Also
 
 - [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — 已加入 S-1 与上述三条规则
