@@ -3,8 +3,8 @@ type: Concept
 title: "Review and Recall Rhythm"
 description: A daily/weekly/monthly/quarterly cadence that replaces re-reading with retrieval practice, plus the morning-and-evening 15-minute routine that makes it stick.
 tags: [learning, memory, review, habit]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:12:00+08:00 }
-id: "20261005T051200"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: beginner
 domain: learning-and-growth

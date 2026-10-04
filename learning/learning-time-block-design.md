@@ -3,8 +3,8 @@ type: Concept
 title: "Learning Time-Block Design"
 description: Making study survive a full-time job — big rocks first, 30-minute granularity, one protected depth block per evening, and a micro-start floor for exhausted days.
 tags: [learning, time, habit, method]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:32:00+08:00 }
-id: "20261005T053200"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: beginner
 domain: learning-and-growth

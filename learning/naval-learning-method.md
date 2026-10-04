@@ -6,8 +6,8 @@ tags:
   - learning
   - method
   - reading
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:30:00+08:00 }
-id: "20261005T043000"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

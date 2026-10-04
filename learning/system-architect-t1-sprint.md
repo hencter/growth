@@ -3,8 +3,8 @@ type: Tutorial
 title: "S-1 起点诊断 · 运行单（当前真实状态）"
 description: 撤回基于未校准术语（ADR）的上一版运行；改为先做 S-1 起点诊断——由学习者用自己的话说出对象，评估只依据其回答，不依据是否完成我派发的作业。
 tags: [learning, rdep-run, diagnosis, method]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T06:30:00+08:00 }
-id: "20261005T063000"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:02:56+08:00 }
+id: "20261005T050256"
 status: budding
 difficulty: beginner
 domain: learning-and-growth

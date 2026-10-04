@@ -3,8 +3,8 @@ type: Pattern
 title: "Investigation Before Judgement"
 description: A discipline for forming conclusions — investigate first-hand before asserting, grade the evidence, price your confidence, and write down what would change your mind.
 tags: [learning, evidence, method, thinking]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:05:00+08:00 }
-id: "20261005T050500"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

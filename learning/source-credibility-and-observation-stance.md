@@ -3,8 +3,8 @@ type: Concept
 title: "Source Credibility and Observation Stance"
 description: Grading sources L0–L5, separating signal from noise, and holding conclusions open — the intake filter that decides what deserves to enter your notes.
 tags: [learning, evidence, information, method]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:40:00+08:00 }
-id: "20261005T054000"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

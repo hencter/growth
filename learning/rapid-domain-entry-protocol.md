@@ -3,8 +3,8 @@ type: Pattern
 title: "Rapid Domain Entry Protocol"
 description: A gated, time-boxed protocol for entering any field fast — define the output, map the field, learn its language, reproduce one canonical result, locate the live disputes, publish, then defend against decay.
 tags: [learning, method, protocol, onboarding]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:55:00+08:00 }
-id: "20261005T045500"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:58:28+08:00 }
+id: "20261005T045828"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

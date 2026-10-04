@@ -3,8 +3,8 @@ type: Concept
 title: "Mental Models Lattice"
 description: Accumulating cross-disciplinary mental models one per week — how a lattice of models produces judgement, and where the popular "80–90 models" figure comes from.
 tags: [learning, judgement, models, method]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:36:00+08:00 }
-id: "20261005T053600"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

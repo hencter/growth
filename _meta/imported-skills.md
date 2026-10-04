@@ -5,8 +5,8 @@ aliases:
   - "技能导入台账"
 description: 外部技能导入台账 — 23 个从 Note 库移植的技能与 hugo-static-site 技能包的来源、校验、绑定风险、冲突处理与卸载路径。
 tags: [meta, skills, ledger, provenance]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:50:00+08:00 }
-id: "20261005T055000"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: intermediate
 domain: knowledge-management

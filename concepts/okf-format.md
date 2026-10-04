@@ -5,8 +5,8 @@ aliases:
   - "Open Knowledge Format (OKF)"
 description: Google's Open Knowledge Format v0.2 — provenance, trust, and lifecycle as first-class frontmatter families on top of a markdown-plus-YAML bundle.
 tags: [okf, knowledge-management, format, specification, interoperability]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:40:00+08:00 }
-id: "20261005T044000"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:12:28+08:00 }
+id: "20261005T041228"
 status: evergreen
 difficulty: beginner
 domain: knowledge-management

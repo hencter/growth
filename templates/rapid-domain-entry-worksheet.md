@@ -3,8 +3,8 @@ type: Template
 title: "Rapid Domain Entry Worksheet"
 description: 可复印的填空表：任何一个新领域，按 S0–S6 七格填完，即可交付一份「快速进入」成果；配套 learning/rapid-domain-entry-protocol.md。
 tags: [template, learning, protocol]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:58:00+08:00 }
-id: "20261005T045800"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:58:28+08:00 }
+id: "20261005T045828"
 status: budding
 difficulty: beginner
 domain: learning-and-growth

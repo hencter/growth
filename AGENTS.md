@@ -135,7 +135,7 @@ Two query modes (inspired by GraphRAG, arXiv:2404.16130) — strategy depends on
 4. **Broken links**: Edges pointing to non-existent nodes
 5. **Staleness check**: Notes with `status: superseded` or outdated content
 6. **Promotion audit (grep, mechanical)**: grep `log.md` for `fix` entries missing `→ [[artifact]]`/`→ §N` and not marked `lesson: trivial` — **unresolved debts**. (grep, not full scan — compatible with selective memory.)
-7. **Version sync**: `index.md` statistics block must reflect `AGENTS.md` footer version — mismatch is a bug
+7. **Version + clock sync**: `index.md` statistics block must reflect `AGENTS.md` footer version — mismatch is a bug; and every `generated.at`/`id` must be **≤ now** and consistent with git's first-commit time (hand-written timestamps are fabrications, fix 2026-10-05)
 8. Report results in `/log.md`: `## [YYYY-MM-DD] lint | <Findings summary>`
 
 ### 2.4 Lint Auto-Fix (on Lint)
@@ -177,7 +177,7 @@ Two query modes (inspired by GraphRAG, arXiv:2404.16130) — strategy depends on
 
 **Protocol**:
 1. Identify all numeric claims in the output
-2. **Compute with a calculator**: run `pwsh` with `python`/`node`/PowerShell arithmetic — never in-head. (Allowed under §9; `python` is permitted.) **Counts and sizes are recomputed at delivery time — never carried over from a mid-task measurement, and derived metrics (progress %, ratios) are re-verified after every input change: a dashboard that reports 500% is worse than no dashboard.**
+2. **Compute with a calculator**: run `pwsh` with `python`/`node`/PowerShell arithmetic — never in-head. (Allowed under §9; `python` is permitted.) **Counts and sizes are recomputed at delivery time — never carried over from a mid-task measurement, and derived metrics (progress %, ratios) are re-verified after every input change: a dashboard that reports 500% is worse than no dashboard. **Timestamps and ids are data too: read them from the clock (`Get-Date -Format o`) or from git — never from imagination.**
 3. **Verify retrieved data**: re-derive or cross-check any figure read from sources before citing; if verification fails, say so explicitly rather than guessing
 
 ---
@@ -192,7 +192,7 @@ type: Concept              # Concept | Tool | Pattern | Meta | Identity | Tutori
 title: "Display Title"
 description: One-line summary
 tags: [tag1, tag2]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:30:00+08:00 }  # v0.2: who/when (replaces legacy `timestamp`)
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:30:00+08:00 }  # v0.2: who/when (replaces legacy `timestamp`) — `at`/`id` MUST be read from the clock or git at write time, never estimated
 verified: { by: human:<id>, at: 2026-10-05T05:00:00+08:00 }           # v0.2 trust; absent ⇒ unverified
 stale_after: 2027-01-05T00:00:00+08:00   # v0.2 lifecycle; stale when now ≥ this instant
 id: "20261005T043000"      # YYYYMMDDThhmmss

@@ -3,8 +3,8 @@ type: Concept
 title: "Memory Palace Dual Coding"
 description: Splitting semantic memory from spatial memory — the graph answers "what relates to what", the palace answers "where is it", and the two orders must not be merged.
 tags: [learning, memory, obsidian, method]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:24:00+08:00 }
-id: "20261005T052400"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

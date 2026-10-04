@@ -3,8 +3,8 @@ type: Concept
 title: "Sandwich Teaching Method"
 description: Entering a new field by analogy → minimal definition → immediate hands-on loop, because the bottleneck for beginners is a retrieval address, not information volume.
 tags: [learning, teaching, method, curriculum]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:28:00+08:00 }
-id: "20261005T052800"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

@@ -3,8 +3,8 @@ type: Reference
 title: "ADR-001：论坛后端选型采用 Rust"
 description: 学习者第一条真实架构决策的 ADR：Context 为生态不完善与 token 成本敏感，Decision 为选 Rust，Status 已 accepted；推翻条件待补（拷问 Q4）。
 tags: [learning, architecture, adr, decision]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T07:35:00+08:00 }
-id: "20261005T073500"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:17:20+08:00 }
+id: "20261005T051720"
 status: budding
 difficulty: beginner
 domain: learning-and-growth

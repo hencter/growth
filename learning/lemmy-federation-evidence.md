@@ -3,8 +3,8 @@ type: Reference
 title: "Lemmy 为何采用 ActivityPub —— 证据清单（仪器输出）"
 description: 能迁移任务的证据底稿：把 Lemmy 采用 ActivityPub 的公开一手材料集中列出（仓库 issue / 提交 / 发布 / 官方文档），标注每条能支撑 ADR 的哪一栏，以及哪些部分没有证据。
 tags: [learning, architecture, adr, lemmy, activitypub, evidence]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T08:50:00+08:00 }
-id: "20261005T085000"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T06:05:59+08:00 }
+id: "20261005T060559"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

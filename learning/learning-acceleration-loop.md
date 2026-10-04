@@ -7,8 +7,8 @@ tags:
   - method
   - metacognition
   - workflow
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:25:00+08:00 }
-id: "20261005T042500"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

@@ -3,8 +3,8 @@ type: Tutorial
 title: "什么算架构（第一课）"
 description: 从零开始的第一课：用类比 + 最小定义 + 三个动手问题，让学习者在自己已有的系统里「认出」架构，而不是先背名词表。配套 S-1 起点诊断。
 tags: [learning, architecture, tutorial, first-lesson]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T06:50:00+08:00 }
-id: "20261005T065000"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:09:42+08:00 }
+id: "20261005T050942"
 status: budding
 difficulty: beginner
 domain: learning-and-growth

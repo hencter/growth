@@ -3,8 +3,8 @@ type: Concept
 title: "Builder-Verifiability（建造者可验证性）"
 description: 学习者的洞见：当第一建造者是 AI 代理时，工具链的错误信号质量本身就是架构属性——Rust 的编译期报错/警告优于 Python 的隐式结构，因为它把「下一步该做什么」明确交给代理；这同时解释了 token 成本。
 tags: [architecture, ai-agent, quality-attribute, concept]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T07:55:00+08:00 }
-id: "20261005T075500"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:19:40+08:00 }
+id: "20261005T051940"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

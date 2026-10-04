@@ -3,8 +3,8 @@ type: Concept
 title: "AI-Native Architecture Constraints（AI 原生架构的两个第一性约束）"
 description: 由学习者三条回答合成：当第一建造者是 AI 时，架构的第一性约束是「建造者可验证性 × 单位产出边际成本」；人类角色从生产者转为验收者与责任人——所以「不招程序员、只招更优秀的 AI」只对了一半。
 tags: [architecture, ai-agent, cost, concept]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T08:20:00+08:00 }
-id: "20261005T082000"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:28:19+08:00 }
+id: "20261005T052819"
 status: budding
 difficulty: intermediate
 domain: learning-and-growth

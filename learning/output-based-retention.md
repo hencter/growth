@@ -3,8 +3,8 @@ type: Concept
 title: "Output-Based Retention"
 description: Output as a test rather than a by-product — why explaining, writing, and teaching are the only steps that reliably convert reading into retained capability.
 tags: [learning, retention, writing, method]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:08:00+08:00 }
-id: "20261005T050800"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:36:11+08:00 }
+id: "20261005T043611"
 status: budding
 difficulty: beginner
 domain: learning-and-growth

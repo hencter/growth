@@ -3,8 +3,8 @@ type: Tutorial
 title: "你的判断力已经有名字了（把三条回答翻成架构词汇）"
 description: 把学习者自己给出的三条回答逐条翻译成架构标准词汇——他已经在做权衡、找真正约束、用硬约束驱动选型；缺的是词汇、框架与书面辩护，不是判断力。
 tags: [learning, architecture, tutorial, assessment]
-generated: { by: dsh/deepseek-flash, at: 2026-10-05T07:10:00+08:00 }
-id: "20261005T071000"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:15:50+08:00 }
+id: "20261005T051550"
 status: budding
 difficulty: beginner
 domain: learning-and-growth
