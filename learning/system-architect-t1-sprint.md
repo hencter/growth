@@ -20,27 +20,27 @@ sources:
     resource: "/learning/rapid-domain-entry-protocol.md"
     title: "Rapid Domain Entry Protocol（本库）"
 rdep_run: true
-rdep_field: "软件/系统架构（自述「我不懂架构」，请求从头教）"
+rdep_field: "软件/系统架构（从「我不懂架构」到「能书面辩护」）"
 rdep_depth: "S-1 · 诊断"
 rdep_budget_hours: 0.5
 rdep_started: 2026-10-05
 rdep_deadline: 2026-10-06
-rdep_next: "等他一件事：反驳我对论坛项目架构的一处解读，或回答第一课三问中的任意一问（不要他做作业，只要他的判断）"
+rdep_next: "等他交一份 1 页 ADR（原料＝他第 1 条回答：Rust 选型 + 接受 token 代价）"
 rdep_stages:
-  - { id: "S-1", name: "起点诊断", hours: 0.5, status: doing, skills: "investigation-first · criticism-self-criticism", artifact: "已命名对象（架构）；已读其两份原始架构文档（第一手）；第一课已开跑" }
-  - { id: "S0", name: "定义对象", hours: 0.25, status: todo, skills: "concentrate-forces", artifact: "由学习者一句话说出的对象（我出菜单=不合格）" }
-  - { id: "S1", name: "迷你地图", hours: 0.5, status: todo, skills: "investigation-first · karlmarx-skill", artifact: "五格地图（内容随对象而定）" }
-  - { id: "S2", name: "语言", hours: 0.25, status: todo, skills: "obsidian-markdown", artifact: "只用他已经能用的词；新术语先测再用" }
-  - { id: "S3", name: "复现", hours: 1.0, status: todo, skills: "practice-cognition · grill-me", artifact: "在一个真实情境里做一次（对象而定）" }
+  - { id: "S-1", name: "起点诊断", hours: 0.5, status: done, skills: "investigation-first · criticism-self-criticism", artifact: "对象=架构；两份原始文档已读；三条回答已收（评估依据=他的表达）" }
+  - { id: "S0", name: "定义对象", hours: 0.25, status: done, skills: "concentrate-forces", artifact: "目标由他的回答定出：把已有的架构判断装上词汇与框架，并能书面辩护（不是我给的菜单）" }
+  - { id: "S1", name: "迷你地图", hours: 0.5, status: done, skills: "investigation-first · karlmarx-skill", artifact: "词汇地图已产出 → [[architecture-vocabulary-from-your-answers]]（他的三条回答 → 标准词汇）" }
+  - { id: "S2", name: "语言", hours: 0.25, status: doing, skills: "obsidian-markdown", artifact: "词汇对照已出；下一步他用词汇复述自己的系统（一次一句话）" }
+  - { id: "S3", name: "复现", hours: 1.0, status: todo, skills: "practice-cognition · grill-me", artifact: "把第 1 条回答写成 1 页 ADR（他已完成约 80%）" }
   - { id: "S4", name: "真实分歧", hours: 0.25, status: todo, skills: "contradiction-analysis · zoom-out", artifact: "该对象上 2 个真实争论 + 定论条件" }
   - { id: "S5", name: "产出与拷问", hours: 1.0, status: todo, skills: "grill-me · criticism-self-criticism", artifact: "产出 + 被拷问后的修订（含他指出我的问题）" }
   - { id: "S6", name: "抗遗忘", hours: 0.25, status: todo, skills: "self-evolution · auto-commit", artifact: "入库 + 第 3/10/30 天复习" }
 rdep_mastery:
-  - { criterion: "能提问", status: todo, evidence: "等他提出第一个属于他自己的问题（目前 0 个）" }
-  - { criterion: "能判断", status: todo, evidence: "等他对自己或别人的某个说法做出判断（目前 0 次）" }
-  - { criterion: "能迁移", status: todo, evidence: "等他把它用到另一个情境（目前无样本）" }
+  - { criterion: "能提问", status: done, evidence: "他提出「最佳通知方案是什么」——自己的问题，来自他自己的系统" }
+  - { criterion: "能判断", status: done, evidence: "两条纠正我的读法：①成本视角优于算力视角 ②通知优先于数据模型；均给出依据" }
+  - { criterion: "能迁移", status: doing, evidence: "三条回答都在他自己的系统内；跨情境样本待补" }
   - { criterion: "能教", status: todo, evidence: "等他讲给一个人并扛住追问（目前无样本）" }
-  - { criterion: "知边界", status: done, evidence: "两次主动自报：①「ADR 是什么我都不知道」②「我不懂架构」（样本=2，行为一致）" }
+  - { criterion: "知边界", status: done, evidence: "三次主动自报：ADR 不懂 / 「我不懂架构」/「没法验证的是大量 Agent」（样本=3）" }
 confidence: 0.9
 summary: >
   当前真实状态：尚无校准过的学习对象。上一次运行（ADR）已撤回，原因是建立在我未校准的术语上。本轮先做 S-1 起点诊断——用学习者自己的话定位起点，评估只依据他的回答，不依据他是否完成我派发的作业。
@@ -107,6 +107,19 @@ summary: >
 **关键判断**：他**已经有架构文档**，却自述不懂架构——两头都真。合理读法是：文档是"存在的"，但还不是"他能辩护的"；**从「能辩护/能推翻」入手，比从名词定义入手更接近真问题**。
 
 **我等他给的一件事**（不是作业，是判断）：指出我解读里**一处说错的地方**，或回答三问中任意一问。
+## S-1 完成：评估结果（依据＝他的回答，非作业）
+
+| 标准 | 证据 | 判定 |
+|---|---|---|
+| 能提问 | 提出「最佳通知方案是什么」（来自他自己的系统） | ✅ |
+| 能判断 | 两条纠正我的读法（成本视角 > 算力视角；通知 > 数据模型），均给出依据 | ✅ |
+| 能迁移 | 三条回答都在同一系统内 | 🔄 有迹象，样本不足 |
+| 能教 | 尚无 | ⬜ |
+| 知边界 | 三次主动自报（ADR 不懂 / 不懂架构 / 没法验证大量 Agent） | ✅ |
+
+**本轮主要矛盾随之更新**：从「熟悉感 vs 可迁移能力」→ **「口头判断 vs 书面可辩护」**。
+**下一轮唯一硬产出**：把他第 1 条回答写成 1 页 ADR（Context＝生态不完善且 token 敏感 / Decision＝选 Rust / Consequences＝token 开销 + 改造累 / Status / 推翻条件），然后按 `grill-me` 逐条拷问。
+**副产品**：他自问的「最佳通知方案」是一个**真实待研究问题**，适合作为下一个 RDEP 运行（硬约束＝一定能触达用户；备选＝公众号 / 站内 / 邮件；分阶段＝邮件先行）。
 ## See Also
 
 - [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — 已加入 S-1 与上述三条规则

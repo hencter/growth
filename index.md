@@ -44,6 +44,7 @@ graph TD
 ### 📈 [[learning|学习 — 加速学习方法论]]
 本库的主线：把「学得更快」沉淀成可复用的方法。原子知识点 + 情景化技能（`.agents/skills/`）。
 - [[architecture-what-counts|什么算架构（第一课）]] — 从零第一课：用你自己的系统认出「承重墙」；配套 [[system-architect-t1-sprint|S-1 起点诊断]]
+- [[architecture-vocabulary-from-your-answers|你的判断力已经有名字了]] — 把学习者自己的三条回答翻成架构标准词汇（含两处他纠正我的地方）
 - [[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]] — **进入任何一个新领域的执行协议**：三档预算（3h / 9.5h / 29.5h）× 七阶段 × 五道闸门，配套 [[rapid-domain-entry-worksheet|填空表]]
 - [[learning-acceleration-loop|Learning Acceleration Loop]] — 七阶段学习回路：提问 → 查一手 → 拆解 → 骨架 → 验证 → 输出 → 反馈
 - [[naval-learning-method|Naval Learning Method]] — 极速研究法四步 + 独特阅读法三招
