@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{ if eq .Kind "taxonomy" }}
+  {{/* 分类总览（如 /tags/）：术语云。原 terms.html 已合并到此，避免 v0.167 的 --printUnusedTemplates 误报。 */}}
+  <section class="block">
+    <h1>{{ .Title }}</h1>
+    <p class="lead">按主题横向串起这些笔记——链接回答「怎么连接」，标签回答「属于哪一类」。</p>
+    <p class="chips">
+      {{ range .Data.Terms.Alphabetical }}
+        <a class="chip" href="{{ .Page.RelPermalink }}">#{{ .Page.Title }} <span class="dim">{{ .Count }}</span></a>
+      {{ end }}
+    </p>
+  </section>
+{{ else }}
+  {{/* 术语页（如 /tags/learning/）与其它列表：卡片 */}}
+  <section class="block">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    <p class="dim">{{ len .Pages }} 篇</p>
+    <ul class="cards">
+      {{ range .Pages.ByTitle }}
+        <li class="card">
+          <a class="card-link" href="{{ .RelPermalink }}">
+            <h4>{{ .Title }}</h4>
+            {{ with .Description }}<p>{{ . }}</p>{{ end }}
+          </a>
+          <p class="card-meta">
+            {{ with .Params.type }}<span>{{ . }}</span>{{ end }}
+            {{ with .Params.difficulty }}<span>{{ . }}</span>{{ end }}
+          </p>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}
+{{ end }}

@@ -1,0 +1,17 @@
+<footer class="site-foot">
+  <div class="wrap">
+    <p>
+      由 <strong>{{ site.Params.steward | default "知行" }}</strong> 维护 · 主人 <strong>{{ site.Params.owner | default "亦幸" }}</strong>
+      · 内容遵循 <a href="https://github.com/GoogleCloudPlatform/open-knowledge-format" rel="noopener">OKF v0.2</a>
+      · 站点用 Hugo {{ hugo.Version }} 构建
+    </p>
+    <p class="dim">
+      每篇笔记的 <code>generated.at</code> / <code>sources</code> / <code>status</code> 直接来自笔记 frontmatter——
+      人类读到的与机器读到的是同一份事实。
+      {{ with site.Params.repo }}<a href="{{ . }}" rel="noopener">查看源仓库</a>{{ end }}
+    </p>
+    {{ with .GitInfo }}
+      <p class="dim">本页最后更新来自 git 提交 <code>{{ .AbbreviatedHash }}</code>（{{ .CommitDate.Format "2006-01-02" }}）：{{ .Subject }}</p>
+    {{ end }}
+  </div>
+</footer>

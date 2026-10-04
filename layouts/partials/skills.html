@@ -1,0 +1,35 @@
+{{/* 技能路由：构建时直接读取 .agents/skills/ 下每个技能目录里的 SKILL.md frontmatter，不用手工维护快照 */}}
+{{ $groups := slice
+  (dict "name" "毛式方法论 · 思维方法" "when" "遇到「学什么、先解决哪个、怎么不被现实打回」时" "members" (slice "arming-thought" "contradiction-analysis" "concentrate-forces" "investigation-first" "practice-cognition" "protracted-strategy" "mass-line" "overall-planning" "criticism-self-criticism" "spark-prairie-fire"))
+  (dict "name" "学习与知识管理" "when" "笔记怎么记、怎么归位、怎么检索时" "members" (slice "cross-tag-method" "obsidian-markdown" "obsidian-bases" "nova-kb" "obsidian"))
+  (dict "name" "认知与复盘" "when" "想被拷问、想蒸馏思维框架、想让方案接受结构分析时" "members" (slice "grill-me" "grill-with-docs" "minimalist-review" "karlmarx-skill" "zoom-out" "self-evolution" "thinker-distiller"))
+  (dict "name" "技能自举" "when" "要造 / 修 / 评一个新方法（技能）时" "members" (slice "skill-creator" "skill-fixer" "skill-quality-optimizer"))
+  (dict "name" "本库运行时" "when" "维护本库、构建站点时" "members" (slice "auto-commit" "hugo-static-site"))
+}}
+<section class="block">
+  <h2>技能路由 <span class="dim">技能是「情景化指令」，由 AI 管家按场景加载，不是给人逐条读的文档</span></h2>
+  {{ $total := 0 }}
+  {{ range $groups }}
+    <h3 class="group">{{ .name }} <span class="dim">{{ .when }}</span></h3>
+    <ul class="skills">
+      {{ range .members }}
+        {{ $path := printf ".agents/skills/%s/SKILL.md" . }}
+        {{ if fileExists $path }}
+          {{ $raw := readFile $path }}
+          {{ $parts := split $raw "---" }}
+          {{ $meta := dict "name" . "description" "" }}
+          {{ if ge (len $parts) 3 }}{{ $meta = index $parts 1 | transform.Unmarshal }}{{ end }}
+          {{ $desc := "" }}{{ with $meta.description }}{{ $desc = . | replaceRE `\s+` " " | strings.TrimSpace }}{{ end }}
+          {{ $total = add $total 1 }}
+          <li>
+            <code class="skill-name">{{ or $meta.name . }}</code>
+            {{ with $desc }}<span class="skill-desc">{{ . | truncate 150 }}</span>{{ end }}
+          </li>
+        {{ else }}
+          <li class="dim"><code class="skill-name">{{ . }}</code> <span class="skill-desc">（目录不存在，已跳过）</span></li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  {{ end }}
+  <p class="dim">共 {{ $total }} 个技能，位于 <code>.agents/skills/</code>；本页由构建时读取其 <code>SKILL.md</code> frontmatter 生成。</p>
+</section>

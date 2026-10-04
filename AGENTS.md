@@ -218,6 +218,7 @@ summary: The core idea in one sentence.
 ## 4. Linking Convention
 
 - **Wiki links**: `[[Note]]`, `[[Note#Section]]`, `[[Note|alias]]`, `[[Note#^block-id]]`
+- **In tables, escape the alias pipe**: `[[note\|Alias]]` — an unescaped `|` splits the table cell and breaks the link (identical in Obsidian and Hugo)
 - **Tags**: prefer `tags:` in frontmatter over inline `#tag` for machine-readability
 - **External links**: standard markdown; citations live in frontmatter `sources` (§3, OKF v0.2) — a body `# Citations` list is the tolerated legacy form
 - **Minimum 1–3 outbound links per note** — orphan = zero inbound wiki links (§2.1)

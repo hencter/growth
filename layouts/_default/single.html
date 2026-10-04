@@ -1,0 +1,26 @@
+{{ define "main" }}
+<article class="note">
+  <nav class="crumbs"><a href="{{ site.Home.RelPermalink }}">← 全部笔记</a></nav>
+
+  <header class="note-head">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    <p class="note-meta">
+      {{ range .Params.tags }}<a class="chip" href="{{ (printf "tags/%s/" (urlize .)) | relURL }}">#{{ . }}</a>{{ end }}
+      {{ with .Params.generated }}{{ with .at }}<time datetime="{{ . }}">生成于 {{ (time .).Format "2006-01-02" }}</time>{{ end }}{{ end }}
+      {{ with .GitInfo }}<span class="dim">git {{ .AbbreviatedHash }}</span>{{ end }}
+    </p>
+  </header>
+
+  {{ if .TableOfContents }}
+    <details class="toc">
+      <summary>本页目录</summary>
+      {{ .TableOfContents }}
+    </details>
+  {{ end }}
+
+  {{ partial "wiki-body.html" . }}
+
+  {{ partial "okf-meta.html" . }}
+</article>
+{{ end }}

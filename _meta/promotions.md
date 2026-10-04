@@ -29,6 +29,7 @@ Rules written into `AGENTS.md` — loaded every session, binding by construction
 | 2026-06-30 | §1 no filesystem-absolute paths | Absolute paths break on distribution | log 2026-06-30 |
 | 2026-08-05 | §2.6 data accuracy — calculator required | LLM arithmetic unreliable; verify any numeric output with a calculator | log 2026-08-05 |
 | 2026-10-05 | §2.6 strengthened — recompute at delivery | Count/size figures drift as files are written; recompute them at delivery, never reuse mid-task measurements | log 2026-10-05 |
+| 2026-10-05 | §4 escape the alias pipe in tables | Recurrence of the 2026-08-14 escaping lesson: an unescaped `\|` in a table cell breaks both the wiki link and the cell — the Hugo build surfaced it | log 2026-10-05 |
 | 2026-08-14 | §9 DSH tool boundary + portability map | Schema names the current harness's tools; one-line map keeps portability | log 2026-08-14 |
 | 2026-08-26 | §8 vault skills at `.agents/skills/` | Agent Skills Standard path is auto-discovered by DSH — the `skill` tool loads vault skills by name | log 2026-08-26 |
 | 2026-10-05 | §3 OKF v0.2 conformance | v0.2 makes provenance/trust/lifecycle first-class; `timestamp` → `generated.at`, body `# Citations` → `sources` | log 2026-10-05 |

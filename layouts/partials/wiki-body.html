@@ -1,0 +1,29 @@
+{{/*
+  正文渲染：把 Obsidian wiki 链接解析成站内链接。
+  - [[slug]]        → 链接，文字用**目标页标题**（比 slug 可读）
+  - [[slug|别名]]   → 链接，文字用别名
+  - [[slug\|别名]]  → 同上（表格内必须转义的写法）
+  - 目标不在内容源内 → 退化为纯文本，不留死链
+*/}}
+{{ $body := .Content }}
+
+{{/* 1) 裸链接：逐页替换，顺带把 slug 换成人类可读标题 */}}
+{{ range site.RegularPages }}
+  {{ $body = replaceRE (printf `\[\[%s\]\]` .File.TranslationBaseName) (printf `<a href="%s">%s</a>` .RelPermalink .Title) $body }}
+{{ end }}
+
+{{/* 2) 别名链接（两种写法） */}}
+{{ $slugs := slice }}
+{{ range site.RegularPages }}{{ $slugs = $slugs | append .File.TranslationBaseName }}{{ end }}
+{{ $alt := delimit $slugs "|" }}
+{{ $base := site.Home.RelPermalink }}
+{{ if $alt }}
+  {{ $body = replaceRE (printf `\[\[(%s)\\\|([^\]|]+)\]\]` $alt) (printf `<a href="%s$1/">$2</a>` $base) $body }}
+  {{ $body = replaceRE (printf `\[\[(%s)\|([^\]|]+)\]\]` $alt) (printf `<a href="%s$1/">$2</a>` $base) $body }}
+{{ end }}
+
+{{/* 3) 未收录目标：保留可读文字，去掉方括号 */}}
+{{ $body = replaceRE `\[\[[^\]|]+\\?\|([^\]]+)\]\]` `$1` $body }}
+{{ $body = replaceRE `\[\[([^\]]+)\]\]` `$1` $body }}
+
+<div class="prose">{{ $body | safeHTML }}</div>

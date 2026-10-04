@@ -126,10 +126,26 @@ Agent 通过共享 Markdown 文件进行跨上下文通信的协议与实践。
 | 了解 Agent 规则 | [AGENTS.md](AGENTS.md) |
 | 查看近期活动 | [log.md](log.md) |
 | 我该怎么学得更快 | [[learning\|学习中枢]] |
+| 用浏览器看学习站 | 见下方「站点」 |
 | 创建新概念笔记 | [[concept-template|概念模板]] |
 | 浏览全部概念 | [[concepts]] |
 | 理解 ZK 方法 | [[zettelkasten-methodology\|Zettelkasten Methodology]] |
 | 学习 OKF 格式 | [[okf-format\|OKF Format]] |
+
+---
+
+## 🌐 站点
+
+本库自带一个 Hugo 站点（`hugo.toml` + `layouts/` + `static/`，**站点根 = 知识库根**），把 `learning/` 的笔记渲染成给人看的站：
+
+```bash
+hugo server --port 1414          # 本地预览（本机已有 hugo server 时请换端口）
+hugo --ignoreCache --cleanDestinationDir   # 一次性静态构建 → public/（已 gitignore）
+```
+
+- **内容只有一份**：站点直接读 `learning/*.md` 的 frontmatter（`contentDir = "learning"`），`generated.at` / `sources` / `status` / `confidence` 原样呈现为 OKF 面板——人类层与机器层不漂移。
+- **技能也是实时的**：首页的 27 个技能由构建时读取 `.agents/skills/` 下各 `SKILL.md` 的 frontmatter 生成，不是手工快照。
+- **部署**：`baseURL` 现指向 `https://hencter.github.io/growth/`（假设用 GitHub Pages 项目站）；换域名只需改 `hugo.toml` 一行。
 
 ---
 

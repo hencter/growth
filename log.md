@@ -4,6 +4,34 @@
 
 ---
 
+## [2026-10-05] refactor | 用 hugo-static-site 技能落地学习站（站点根=库根，严格构建 0 警告）→ [[learning]]
+
+**技能流程**（按 `hugo-static-site` 的「动任何东西之前」三步）：①`hugo version` = **v0.167.0+extended**（与你 hugozh.cn 站同版本，故 `locale` 而非 `languageCode`）；②查 watcher：本机两个 `hugo server`（1515 = Hugo 中文文档站、1313 = 其它项目）**都不盯本库**，无 G13 冲突；③基线：库内无任何 hugo 配置，基线构建为空站（仅 2 条「无布局」WARN）。
+
+**落地**（站点根 = 知识库根，内容源 = `learning/`，共 14 篇）：
+- `hugo.toml`：`contentDir = "learning"`、`locale = "zh-cn"`、`enableGitInfo`、`hasCJKLanguage`、`enableRobotsTXT`、`timeZone`；`[frontmatter] date/lastmod = [..., ":git"]`。**所有键名取自 `hugo config --printZero` 实测**，不凭记忆。
+- `layouts/`：`index.html`（学习中枢仪表盘：三句话立场 + 场景选篇 9 行 + 14 篇卡片 + 技能路由 + 三张清单 + 来源与诚实边界）、`_default/{baseof,single,list}.html`、`404.html`、`partials/{head,header,footer,okf-meta,wiki-body,skills}.html`、`robots.txt`（含 Sitemap 行、非 production 自动 Disallow）。
+- `static/`：`css/style.css`（零依赖、明暗双主题、CJK 字体栈）、`favicon.svg`。
+- `.gitignore` 增 `public/`、`resources/`、`.hugo_build.lock`（技能 versioning 节：只跟踪源）；`index.md` 增「🌐 站点」节。
+
+**两项设计**：①**同一份事实**——站点直接读笔记 frontmatter，把 OKF v0.2 的 `generated.at` / `sources` / `status` / `confidence` / 信任层级渲染成「OKF 面板」（`status` → 生命周期映射 budding→draft、evergreen→stable 也已呈现）；裸 wiki 链接渲染为**目标页标题**、别名链接渲染为别名、表格内 `\|` 转义写法同样解析、站外目标退化为纯文本不留死链。②**技能实时生成**——首页 27 个技能由构建时读取各 `SKILL.md` frontmatter 得到，无手工快照（`fileExists` + `readFile` + `transform.Unmarshal`）。
+
+**验证（技能交付清单逐项）**：严格构建 `--ignoreCache --cleanDestinationDir --panicOnWarning --printPathWarnings --printUnusedTemplates --printI18nWarnings` → **exit 0、0 警告**；页面数 71 逐项对账（14 笔记 + 首页 + 404 + 1 分类总览 + 25 术语页 + 26 RSS + 2 静态 + robots/sitemap = 73 文件）；全站产物 **0 处未解析 `[[`**；审计构建（`HUGO_MINIFY_TDEWOLFF_HTML_KEEPCOMMENTS` + `HUGO_ENABLEMISSINGTRANSLATIONPLACEHOLDERS`）后 grep `public/`：`HAHAHUGOSHORTCODE` / `ZgotmplZ` / `[i18n]` / `{{` 全为 0；脚注正常（metacognition 篇）；404 套用 baseof；dev 环境自动 `noindex`、production 不输出。
+**预览**：`http://localhost:1414/growth/`（`hugo server --noBuildLock --renderToMemory`，端口避开已占用的 1313/1515）。
+
+**过程中实证的 3 个坑（可复用）**：
+1. **Go 模板注释里的 `*/`**：注释中写路径 `.agents/skills/*/SKILL.md` 会提前终止注释 → 构建报 `parse of template failed: comment ends before closing delimiter`。路径通配不要写进注释。
+2. **`--printUnusedTemplates` 对 taxonomy 模板误报**：v0.167 把 `_default/terms.html` 判为 unused，但 `--templateMetrics` 显示它执行 1 次、且 `/tags/` 产物含其特征内容 → 实证为**误报**；处置：术语云并入 `list.html` 并删除该模板，严格构建回到 0 警告。
+3. **`[frontmatter]` 不支持嵌套路径**：`date = ["generated.at", ...]` 不被解析，`hugo list all` 静默回退到 `:git`（观测值 = 提交时间）→ 改回 `["date", ":git"]` 并把结论写进配置注释；OKF 的 `generated.at` 只在模板层直接读取展示。
+
+## [2026-10-05] fix | 表格内 wiki 别名管道符未转义（建站时被产物抽检照出）→ §4
+
+**发现链**：用 `hugo-static-site` 技能在库根建站 → 交付前的产物抽检发现 `public/review-and-recall-rhythm/index.html` 残留半截链接 `([[mental-mo…`。
+**根因**：该笔记第 41 行的**表格单元**里写了 `[[mental-models-lattice|Mental Models Lattice]]`——Markdown 把未转义的 `|` 当单元格分隔符，链接与表格同时被切断。**Obsidian 与 Hugo 行为一致**，所以这是笔记本身的缺陷，不是站点问题；反过来说，**站点构建可以当图库体检的探针**（人类阅读时这种破损很容易被忽略）。
+**修复**：`learning/review-and-recall-rhythm.md:41` 改为 `[[mental-models-lattice\|Mental Models Lattice]]`；全库复扫（逐行判定「表格行 + 未转义别名管道」）确认**仅此 1 处**，其余 10 篇的别名链接都不在表格里。
+**升格（§2.5：复发 → 载体必须加强）**：2026-08-14 已有同类经验（[[knowledge-graph-patterns|Knowledge Graph Patterns]]「显示语法必须转义」），本次复发证明「知识笔记」作载体约束力不足 → **提升为 AGENTS.md §4 硬规则**（在 349/350 行预算内 +1 行，未超预算），并登记 [[promotions|Promotion Ledger]]。
+**方法论收获**：站点构建是**跨介质验证**——同一份 Markdown 在 Obsidian、GitHub、Hugo 三种解析器下都要成立；只在一种介质里看，会漏掉结构性缺陷。
+
 ## [2026-10-05] session | 建库：OKF v0.2 + 学习集群 14 篇 + 27 技能 + 定名知行 → §7
 
 **本次会话全貌**：

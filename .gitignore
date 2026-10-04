@@ -1,2 +1,7 @@
 .obsidian/workspace.json
 _identity/user-config.md
+
+# Hugo：只跟踪源，不跟踪产物（技能 versioning 节）
+public/
+resources/
+.hugo_build.lock

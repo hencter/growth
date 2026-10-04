@@ -1,0 +1,39 @@
+# 亦幸的学习 — Hugo 站点配置
+# 站点根 = 本知识库根目录；内容源 = ./learning/（本库学习笔记，OKF v0.2 frontmatter）
+# 说明：所有键名均按本机 Hugo v0.167.0 的 `hugo config --printZero` 实测结果书写，不凭记忆。
+baseURL = "https://hencter.github.io/growth/"   # ← 部署目标变更时只改这一行
+title = "亦幸的学习"
+locale = "zh-cn"
+defaultContentLanguage = "zh"
+contentDir = "learning"
+enableGitInfo = true
+enableRobotsTXT = true
+hasCJKLanguage = true
+summaryLength = 40
+capitalizeListTitles = false
+timeZone = "Asia/Shanghai"
+
+[params]
+  lang = "zh-CN"
+  subtitle = "把「学得更快」沉淀成可复用的方法"
+  description = "亦幸的学习站：14 篇原子笔记讲清「更快学会」的回路、认知校准与落地节奏；27 个技能按场景可加载。数据源是同一批 Markdown 笔记，机器层是人类层的同一份事实。"
+  owner = "亦幸"
+  steward = "知行"
+  repo = "https://github.com/hencter/growth"
+  # 显式数值日期布局：避开 zh-CN 本地化缺失导致的英文日期回退（技能 dates 节实测项）
+  dateFormat = "2006-01-02"
+
+[markup]
+  [markup.tableofcontents]
+    startLevel = 2
+    endLevel = 3
+
+# 日期事实源：`.Date`/`.Lastmod` 取 git 提交时间（`hugo list all` 实测生效）。
+# 实测结论（v0.167）：`[frontmatter]` 的链**不支持嵌套路径**——写 `generated.at` 不会被解析，
+# 会静默回退到下一项。因此 OKF 的 `generated.at` 只在模板层直接读取展示（layouts/partials/okf-meta.html）。
+[frontmatter]
+  date = ["date", ":git"]
+  lastmod = ["lastmod", ":git"]
+
+[taxonomies]
+  tag = "tags"

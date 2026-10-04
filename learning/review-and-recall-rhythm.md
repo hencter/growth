@@ -38,7 +38,7 @@ the quarterly converts knowledge into artefacts.
 | Level | Time | What it does | Concrete form |
 |-------|------|--------------|---------------|
 | **Daily** | 15 min (morning) + 15 min (evening) | keeps material active, catches drift | morning: 5-min stillness + 30 min reading + review today's core goal · evening: journal + rate the quality of three decisions |
-| **Weekly** | 30–60 min, ideally one meeting-free day | consolidates the week, exposes failures | one new mental-model card, one knowledge share, one failure retrospective ([[mental-models-lattice|Mental Models Lattice]]) |
+| **Weekly** | 30–60 min, ideally one meeting-free day | consolidates the week, exposes failures | one new mental-model card, one knowledge share, one failure retrospective ([[mental-models-lattice\|Mental Models Lattice]]) |
 | **Monthly** | 1–2 h | hunts gaps and process friction | re-derive one earlier skeleton from scratch; audit processes and adjust |
 | **Quarterly** | half a day | converts knowledge into leverage | turn note clusters into a tutorial, talk, or shipped artefact |
 

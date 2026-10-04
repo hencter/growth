@@ -1,0 +1,120 @@
+{{ define "main" }}
+
+<section class="hero">
+  <p class="eyebrow">学习站 · 由笔记本身生成</p>
+  <h1>{{ site.Title }}</h1>
+  <p class="lead">{{ site.Params.subtitle }}</p>
+  <p class="stats">
+    <span><strong>{{ len site.RegularPages }}</strong> 篇原子笔记</span>
+    <span><strong>{{ len (os.ReadDir `.agents/skills`) }}</strong> 个技能</span>
+    <span>OKF <strong>v0.2</strong></span>
+    <span class="dim">维护者 {{ site.Params.steward }}</span>
+  </p>
+</section>
+
+<section class="block">
+  <h2>三句话立场</h2>
+  <ol class="stance">
+    <li><strong>学习快慢由回路闭环决定，不由输入量决定。</strong>提问 → 查一手 → 拆解 → 搭骨架 → 动手验证 → 输出 → 缺口回流。</li>
+    <li><strong>没有调查就没有发言权。</strong>先查一手源，再下判断；查不到就标注，不假装查到。</li>
+    <li><strong>输出是检验，不是副产品。</strong>讲不出来、写不出来、用不上，就等于没学会。</li>
+  </ol>
+</section>
+
+{{/* 场景选篇：slug 白名单在 wiki-body 中实时生成，这里只写场景 → slug 映射 */}}
+{{ $scenarios := slice
+  (dict "q" "想快进入一个全新领域" "items" (slice "naval-learning-method" "sandwich-teaching-method"))
+  (dict "q" "拆不动问题、只会照抄别人的做法" "items" (slice "first-principles-thinking"))
+  (dict "q" "信息太多、越看越没主见" "items" (slice "independent-thinking-against-information-overload" "source-credibility-and-observation-stance"))
+  (dict "q" "判断总出错、事后才发现" "items" (slice "investigation-before-judgement" "metacognition-monitoring-protocol"))
+  (dict "q" "学了就忘、复习无从下手" "items" (slice "review-and-recall-rhythm" "memory-palace-dual-coding"))
+  (dict "q" "上班太忙、学习总被挤掉" "items" (slice "learning-time-block-design"))
+  (dict "q" "想提升判断力而不是知识量" "items" (slice "mental-models-lattice"))
+  (dict "q" "要教别人、写讲解" "items" (slice "sandwich-teaching-method" "output-based-retention"))
+  (dict "q" "知识库越堆越乱、找不到东西" "items" (slice "progressive-disclosure"))
+}}
+<section class="block">
+  <h2>场景选篇</h2>
+  <table class="scenario">
+    <tbody>
+      {{ range $scenarios }}
+        <tr>
+          <th scope="row">{{ .q }}</th>
+          <td>
+            {{ range .items }}
+              {{ with where site.RegularPages "File.TranslationBaseName" . }}
+                <a href="{{ (index . 0).RelPermalink }}">{{ (index . 0).Title }}</a>
+              {{ end }}
+            {{ end }}
+          </td>
+        </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</section>
+
+<section class="block">
+  <h2>全部笔记 <span class="dim">{{ len site.RegularPages }} 篇</span></h2>
+  {{ range site.RegularPages.GroupByParam "type" }}
+    <h3 class="group">{{ .Key }} <span class="dim">{{ len .Pages }} 篇</span></h3>
+    <ul class="cards">
+      {{ range .Pages.ByTitle }}
+        <li class="card">
+          <a class="card-link" href="{{ .RelPermalink }}">
+            <h4>{{ .Title }}</h4>
+            {{ with .Description }}<p>{{ . }}</p>{{ end }}
+          </a>
+          <p class="card-meta">
+            {{ with .Params.difficulty }}<span>{{ . }}</span>{{ end }}
+            {{ with .Params.confidence }}<span>置信度 {{ . }}</span>{{ end }}
+            {{ with .Params.generated }}{{ with .at }}<time datetime="{{ . }}">{{ (time .).Format "2006-01-02" }}</time>{{ end }}{{ end }}
+          </p>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+</section>
+
+{{ partial "skills.html" . }}
+
+<section class="block">
+  <h2>三张清单</h2>
+  <div class="cols">
+    <div>
+      <h3>学习前</h3>
+      <ul>
+        <li>把「想学 X」改写成一句<strong>开放式问题</strong>。</li>
+        <li>先写下你现在的答案，再看外部观点。</li>
+        <li>定下<strong>输出物</strong>与<strong>截止时间</strong>（讲给谁 / 写成什么 / 用在哪个决策上）。</li>
+      </ul>
+    </div>
+    <div>
+      <h3>学习中</h3>
+      <ul>
+        <li>3–5 个来源并行，专攻它们<strong>互相矛盾</strong>的地方。</li>
+        <li>每次阶段转换插一次自检：我现在可能犯什么错？漏了哪条约束？</li>
+        <li>任何结论<strong>先标置信度再写</strong>（事实 / 推断 / 推测-待确认）。</li>
+      </ul>
+    </div>
+    <div>
+      <h3>学习后</h3>
+      <ul>
+        <li>输出一次（讲 / 写 / 用），记录暴露出的缺口。</li>
+        <li>把新知识写进笔记库：一篇原子笔记 + 更新 hub。</li>
+        <li>安排下一次<strong>检索式</strong>复习——合上资料重建，而不是重读。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <h2>来源与诚实边界</h2>
+  <ul class="honest">
+    <li>笔记从另一个本地知识库<strong>只读</strong>抽取后重新析出，不复制原文；环境相关的绝对路径不写入笔记。</li>
+    <li>抽取时发现源库 3 处<strong>标题与内容错配</strong>（标题像学习方法，正文其实是硬件排障与文件命名规则），未采信。</li>
+    <li>学习金字塔百分比、「7 年达到顶尖」、网速百万倍、部分成本比例等数字<strong>无一手支撑</strong>，已在对应笔记内逐条标注，本站不把它们当事实展示。</li>
+    <li>每篇笔记都写了它<strong>失效的条件</strong>与诚实范围（例如记忆宫殿的效果置信度是「推断」，未经验证）。</li>
+  </ul>
+</section>
+
+{{ end }}

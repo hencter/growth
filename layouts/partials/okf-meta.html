@@ -1,0 +1,76 @@
+{{/* OKF v0.2 元数据面板：把笔记 frontmatter 里机器可读的事实直接呈现给人类读者 */}}
+{{ $status := .Params.status | default "evergreen" }}
+{{ $okfTier := "stable" }}
+{{ if in (slice "seedling" "budding") $status }}{{ $okfTier = "draft" }}{{ else if in (slice "superseded" "archived") $status }}{{ $okfTier = "deprecated" }}{{ end }}
+{{ $trust := "unverified" }}
+{{ with .Params.verified }}
+  {{ $trust = "machine-confirmed" }}
+  {{/* OKF v0.2 §5.2：裸映射必须当单元素列表处理 */}}
+  {{ $items := . }}
+  {{ if not (reflect.IsSlice .) }}{{ $items = slice . }}{{ end }}
+  {{ range $items }}{{ if strings.HasPrefix (printf "%v" .by) "human:" }}{{ $trust = "human-reviewed" }}{{ end }}{{ end }}
+{{ end }}
+
+<aside class="okf" aria-label="OKF v0.2 元数据">
+  <h2 class="okf-title">OKF v0.2 元数据<span class="dim">（frontmatter 原文，未加工）</span></h2>
+
+  <dl class="okf-grid">
+    <dt>类型</dt><dd><code>{{ .Params.type | default "Concept" }}</code></dd>
+    <dt>领域</dt><dd><code>{{ .Params.domain | default "—" }}</code></dd>
+    <dt>成熟度</dt><dd><code>{{ $status }}</code><span class="dim"> → OKF 生命周期 <code>{{ $okfTier }}</code></span></dd>
+    <dt>难度</dt><dd><code>{{ .Params.difficulty | default "—" }}</code></dd>
+    {{ with .Params.confidence }}<dt>置信度</dt><dd><code>{{ . }}</code></dd>{{ end }}
+    {{ with .Params.generated }}
+      <dt>生成</dt>
+      <dd>
+        <code>{{ .by }}</code>
+        {{ with .at }}· <time datetime="{{ . }}">{{ (time .).Format (site.Params.dateFormat | default "2006-01-02") }}</time>{{ end }}
+      </dd>
+    {{ end }}
+    <dt>信任层级</dt><dd><code>{{ $trust }}</code>{{ if eq $trust "unverified" }}<span class="dim"> — 尚无人工复核记录</span>{{ end }}</dd>
+  </dl>
+
+  {{ with .Params.sources }}
+    <h3>来源（provenance）</h3>
+    <ul class="okf-sources">
+      {{ range . }}
+        <li>
+          {{ with .id }}<code class="src-id">{{ . }}</code>{{ end }}
+          {{ with .title }}<span>{{ . }}</span>{{ end }}
+          {{ with .resource }}
+            {{ if or (strings.HasPrefix . "http://") (strings.HasPrefix . "https://") }}
+              <a href="{{ . }}" rel="noopener">原文</a>
+            {{ else }}
+              <span class="dim">{{ . }}</span>
+            {{ end }}
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  {{ with .Params.related }}
+    <h3>相关笔记</h3>
+    <p class="chips">
+      {{ range . }}
+        {{ with findRESubmatch `\[\[([^\]|\\]+)(?:\\?\|([^\]]+))?\]\]` . 1 }}
+          {{ $slug := index (index . 0) 1 }}
+          {{ $label := index (index . 0) 2 }}
+          {{ with where site.RegularPages "File.TranslationBaseName" $slug }}
+            {{ $p := index . 0 }}
+            <a class="chip" href="{{ $p.RelPermalink }}">{{ or $label $p.Title }}</a>
+          {{ else }}
+            <span class="chip ghost" title="不在本站内容源中">{{ or $label $slug }}</span>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </p>
+  {{ end }}
+
+  {{ with .Params.tags }}
+    <h3>标签</h3>
+    <p class="chips">
+      {{ range . }}<a class="chip" href="{{ (printf "tags/%s/" (urlize .)) | relURL }}">#{{ . }}</a>{{ end }}
+    </p>
+  {{ end }}
+</aside>

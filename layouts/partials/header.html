@@ -1,0 +1,16 @@
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="{{ site.Home.RelPermalink }}">
+      <span class="brand-mark">知</span>
+      <span class="brand-text">
+        <strong>{{ site.Title }}</strong>
+        <em>{{ site.Params.subtitle }}</em>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="{{ site.Home.RelPermalink }}">首页</a>
+      {{ with site.GetPage "/tags" }}<a href="{{ .RelPermalink }}">标签</a>{{ end }}
+      {{ with site.Params.repo }}<a href="{{ . }}" rel="noopener">源码</a>{{ end }}
+    </nav>
+  </div>
+</header>
