@@ -4,6 +4,51 @@
 
 ---
 
+## [2026-10-05] lint+fix | 图谱体检（90 文件）+ §2.6 数字复核：真实断链 0 · 孤儿 0 · 版本同步 ✓ → §2.6
+
+**Lint（图谱 90 个 .md，排除 skills/.git/.obsidian/log-archive）**：
+- **断链**：原始命中 95 处 → 分类后：转义管道伪影 22（表格内 `[[x\|别名]]`，库内既有做法，`_meta/self-bootstrapping.md:100` 已在用）、示例/模板/历史占位 76（AGENTS.md、`templates/`、`conventions.md`、`obsidian-syntax-reference.md`、`conference/`、`log.md` 历史条目、`okf-format.md` 代码示例）、**真实断链 2**（`learning/memory-palace-dual-coding.md` 内两处示例 wikilink）→ 已改为无方括号占位（`<wikilink to the palace note>`），真实断链归零。
+- **孤儿**：知识节点 **0**；命中 2 个 `_agents/*.md` 属机器配置（AGENTS.md §2 明确 skills/agents/config 非图节点），豁免。
+- **版本同步 ✓**：AGENTS.md v1.9.0 = index 统计块 v1.9.0；`okf_version: "0.2"` = 框架 v0.2 = 页脚 `Conforms to: OKF v0.2`。
+- **升格审计**：`fix` 条目 5 条，缺 `→` 引用 0 条（无未结债务）。
+- **frontmatter 合规**：缺 `type` 的 7 个文件全属豁免类（`_agents/` 子代理配置 2、`_identity/` 配置与拒绝话术 2、`conference/` trace 3）；「双 YAML 块」告警 13 处经逐条复核为正文 YAML 示例（`markdown-frontmatter.md`、`templates/` 等）**假阳性**。
+- **绝对路径（§1 硬规则）**：修复 5 处——本轮新引入 3 处（`learning.md`、`_meta/imported-skills.md`、本轮 log 条目）与历史遗留 2 处（`_meta/development.md` 的 worktree 路径、`RELEASE.md` 的合并注释）。`log.md` 历史条目按 append-only 不重写；`_agents/terminology-auditor.md:15` 的 `C:\...` 是「如何识别绝对路径」的教学示例，保留。
+
+**§2.6 数字复核（全部脚本重算，未凭记忆）**：学习笔记 14 篇 · 技能 27 个 / 160 文件 / 793.0 KB（812,067 B）· 导入 23 个 / 144 文件 / 688.4 KB · hugo 包 13 文件 / 93,953 B · 时间块 3h×5 + 8h×1.5 = **27h/周** · 210 + 100 = **310h** · **27×13 = 351 ≠ 310**（源方案内部不自洽，已在笔记内标注）· `1.01^365 = 37.78` · AGENTS.md **349/350** 行。
+
+**教训（normal）**：初稿沿用了「过程中的旧测量值」——技能总体积写成 788.4 KB（实为 793.0 KB）、导入文件数写成 101（实为 144），差异来自移植补丁与统计口径，直到收尾复核才暴露。根因：§2.6 已要求数据输出必须计算器核验，但我的核验时点在**写入笔记之后**，而计数/体积类数字会随写操作继续变化。**做法固化**：计数与体积类数字在**最终交付前统一重算**，不沿用过程值（不新增规则，§2.6 已覆盖，属执行时点问题）。→ §2.6
+
+## [2026-10-05] refactor | 采纳 OKF v0.2（provenance/trust/lifecycle）+ 全库声明同步 → §3
+
+**动因**：用户问「dev 分支有 OKF 2.0 没同步到当前么」。实测结论：模板库 `hencter/Nova` 的 `dev`（5bd1216，08-26）**落后于** `main`（c10b292，10-05）——逐文件比对：仅 dev 有的文件 0 个，仅 main 多的只有 `LICENSE`；两分支 `AGENTS.md` 均为 v1.8.0 / `Conforms to: OKF v0.1`。本库 origin 是 `hencter/growth`（单一 `Initial commit`），从未引入 dev。**真正变化在上游规范**：Google 的 OKF 已发布 **v0.2**（provenance / trust / lifecycle / attestation 一等公民），版本号是 0.2 不是 2.0。
+
+**变更**：
+1. `AGENTS.md` v1.8.0 → **v1.9.0**：§3 改为「OKF v0.2 + Nova Extensions」，补三族字段说明、actor 约定（`<producer>/<version>` / `human:<id>` / `process:<id>`）、信任三层级、`status` 映射与 Nova 扩展/偏离清单；§4 引用口径改为 frontmatter `sources`；页脚 `Conforms to: OKF v0.2`。行数维持 **349/350**（一进一出压缩）。
+2. `index.md`：`okf_version: "0.1"` → `"0.2"`，统计数据同步 v1.9.0，新增学习集群与导入台账入口。
+3. `concepts/okf-format.md`：按上游 `SPEC.md` 重写为 v0.2（§4.1/§5/§6/§7/§8/§9/§11/§13 逐条对齐；含两处 breaking change 与其 fallback），`sources` 改 v0.2 条目（`id` + `resource`），正文引用改脚注。
+4. 全库声明同步 6 处：`_meta/conventions.md`（2 处）、`_meta/vault-architecture.md`、`concepts/markdown-frontmatter.md`、`patterns/knowledge-graph-patterns.md`（顺带修死链 `github.com/google/okf`）、`README.md`；`templates/concept-template.md` 模板与字段表升级。
+5. `_meta/promotions.md` 登记 Active Rules（2026-10-05 行）。
+6. **冲突处理**：OKF `status`（draft/stable/deprecated）与 Nova 成熟度枚举撞名 → 建立映射（seedling/budding→draft · evergreen→stable · superseded/archived→deprecated），保留 Nova 枚举为生产者扩展；`timestamp` → `generated.at`，旧笔记保留 `timestamp` 走 v0.2 fallback，**编辑时迁移，不追溯伪造 `generated.by`**。
+7. 实测：5 个引用 URL 全部 200（SPEC.md / v0.2 博客 / v0.1 博客 / Karpathy gist）；`AGENTS.md` 行数 349。
+
+## [2026-10-05] ingest | 学习集群落地：14 篇原子笔记 + 学习中枢 + 27 技能路由 → [[learning]]
+
+**背景**：用户要求从本机 Note 库（另一个知识库，**只读**；绝对位置见会话记录，按 §1 不写入库内文件）抽取「成长与学习」的 SKILL 与知识点，在本库建成「更快的学习」方法论体系。
+
+**产出**：
+1. **新集群** `/learning/` + 根 hub [[learning|学习中枢]]（`type: Index`）：三句话立场 + 场景选篇表 + 27 技能路由表 + 学习前/中/后三张清单 + 来源诚实边界 + 数据口径。
+2. **14 篇原子笔记**（全部 v0.2 frontmatter）：[[learning-acceleration-loop]]（七阶段回路）、[[naval-learning-method]]、[[first-principles-thinking]]、[[investigation-before-judgement]]、[[metacognition-monitoring-protocol]]、[[output-based-retention]]、[[review-and-recall-rhythm]]、[[learning-time-block-design]]、[[mental-models-lattice]]、[[progressive-disclosure]]、[[memory-palace-dual-coding]]、[[sandwich-teaching-method]]、[[source-credibility-and-observation-stance]]、[[independent-thinking-against-information-overload]]。
+3. **技能**：从 Note 库导入 23 个（毛式方法论 10 + 学习与知识管理 3 + 认知复盘 7 + 自举 3），跳过 4 类强绑定项（理由见台账）；登记 [[imported-skills|技能导入台账]]。
+4. **诚实标注**（不采信、已写入笔记）：源库 3 处标题与内容错配（《学习方法总结》实为显示器静电排障、《学习计划制定》实为 IT 命名规则、《技能提升路径》实为 Windows 临时文件排查）、6 处断链、4 处文件截断；未证实数字（学习金字塔百分比、「7 年达顶尖」、网速百万倍、SpaceX/特斯拉成本比例）逐条标为未独立核实。
+
+## [2026-10-05] init+fix | 库初始化 · hugo-static-site 技能包 13/13 校验通过 · 技能副本修补 → [[imported-skills]]
+
+1. `_identity/user-config.md` 落临时默认（`nova_name: Nova` / `owner_name: 朋友` / `domain: learning-and-growth` / `pending_personalization: true`）——用户选择自行定名并要求先开工，待其给出后覆盖本文件并置 false。
+2. **hugo-static-site**（hugozh.cn 技能包）装到 `.agents/skills/hugo-static-site/`：13 个文件 / 93,953 B / **逐文件 SHA-256 与清单 13/13 一致**（按清单 `files[].url` 取发布字节，避免 git clone 的 CRLF 转换）；目录名与内部相对路径严格照清单，未拍平未改名。装后本会话技能目录**实时刷新**，`hugo-static-site` 已可加载，无需重启。
+3. 技能副本修补（原件未改）：8 个源 `SKILL.md` 的句中物理截断在副本上补完并加 `<!-- import fix -->` 标记；`skill-fixer` 的 `.opencode/skills/` 硬编码改为 `.agents/skills/`（3 处，含 2 个 `.sh`）；`self-evolution` / `thinker-distiller` / `skill-creator` 追加「Portability note」写明本库对应路径。
+4. `.agents/skills/` 现 **27 技能 / 160 文件 / 793.0 KB**（实测 812,067 B）；会话固定开销约 7,066 字符描述 ≈ 2,600 token（粗估，收窄方法已记入台账）。
+5. 采集方式：3 名只读子代理并行侦察（Note 库学习类文档 13 + 元认知/知识管理 18 + 技能 36 个），主会话只写本库——Note 库全程零写入。
+
 ## [2026-08-26] fix | skills 兼容入口改为符号链接 → .agents/skills → §8
 
 **原因**：用户将技能内容移回 `skills/`（真实目录），要求保留旧路径入口。采用方案：技能真实位置固定在 `.agents/skills/`（DSH 自动发现），根目录 `skills` 创建为指向它的符号链接（相对目标，可移植）。

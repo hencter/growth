@@ -407,7 +407,7 @@ WHERE date(created) >= date(today) - dur(7 days)
 
 # Citations
 
-[1] [OKF v0.1 Specification — Frontmatter section](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)
+[1] [OKF v0.2 Specification — Frontmatter section](https://github.com/GoogleCloudPlatform/open-knowledge-format/blob/main/SPEC.md)
 [2] [Obsidian Help — Properties](https://help.obsidian.md/Editing+and+formatting/Properties)
 [3] [Dataview Plugin Documentation](https://blacksmithgu.github.io/obsidian-dataview/)
 [4] [YAML 1.2 Specification](https://yaml.org/spec/1.2/spec.html)

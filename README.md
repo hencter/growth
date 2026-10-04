@@ -90,7 +90,7 @@ Nova: 初始化完成。从现在起我是你的 星尘，请多指教。
 - **编辑器**: Obsidian（Markdown + Wiki Links + Graph View）
 - **AI 框架**: DeepSeek Harness（Cordis 组合 + 工作区 AGENTS.md + 原生工具栈；Skills + Subagents + Multi-agent）
 - **版本控制**: Git（自动提交 via `auto-commit` 技能）
-- **格式标准**: [OKF v0.1](https://github.com/GoogleCloudPlatform/knowledge-catalog)（开放知识格式）
+- **格式标准**: [OKF v0.2](https://github.com/GoogleCloudPlatform/open-knowledge-format)（开放知识格式）
 
 ---
 

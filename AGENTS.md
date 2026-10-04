@@ -177,41 +177,41 @@ Two query modes (inspired by GraphRAG, arXiv:2404.16130) — strategy depends on
 
 **Protocol**:
 1. Identify all numeric claims in the output
-2. **Compute with a calculator**: run `pwsh` with `python`/`node`/PowerShell arithmetic — never in-head. (Allowed under §9; `python` is permitted.)
+2. **Compute with a calculator**: run `pwsh` with `python`/`node`/PowerShell arithmetic — never in-head. (Allowed under §9; `python` is permitted.) **Counts and sizes are recomputed at delivery time — never carried over from a mid-task measurement.**
 3. **Verify retrieved data**: re-derive or cross-check any figure read from sources before citing; if verification fails, say so explicitly rather than guessing
 
 ---
 
-## 3. Frontmatter Convention (OKF v0.1 + Nova Extensions)
+## 3. Frontmatter Convention (OKF v0.2 + Nova Extensions)
 
-Every concept file **MUST** have YAML frontmatter with the required OKF `type` field.
+Every concept file **MUST** have YAML frontmatter with the required OKF `type` field — v0.2's only always-required key (spec §4.1, §11).
 
 ```yaml
 ---
 type: Concept              # Concept | Tool | Pattern | Meta | Identity | Tutorial | Reference | Index
 title: "Display Title"
 description: One-line summary
-tags:
-  - tag1
-timestamp: 2026-06-22T00:00:00Z
-id: "20260622T143000"      # YYYYMMDDThhmmss
-status: evergreen          # seedling | budding | evergreen | superseded | archived
+tags: [tag1, tag2]
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T04:30:00+08:00 }  # v0.2: who/when (replaces legacy `timestamp`)
+verified: { by: human:<id>, at: 2026-10-05T05:00:00+08:00 }           # v0.2 trust; absent ⇒ unverified
+stale_after: 2027-01-05T00:00:00+08:00   # v0.2 lifecycle; stale when now ≥ this instant
+id: "20261005T043000"      # YYYYMMDDThhmmss
+status: evergreen          # Nova maturity enum — maps to the OKF tier below
 difficulty: intermediate   # beginner | intermediate | advanced
 domain: knowledge-management
 prerequisites: ["[[note-slug]]"]  # wiki links preferred; legacy paths = dependency docs, not graph edges
 related: ["[[Note A]]"]
-sources:
-  - title: "Source Name"
-    url: "https://..."
+sources:                   # v0.2 provenance — `resource` REQUIRED per entry (§5.1)
+  - id: source-key         # stable join key for per-claim footnotes
+    resource: "https://..."
+    title: "Source Name"
 confidence: 0.85
 summary: The core idea in one sentence.
 ---
 ```
 
-### Status Lifecycle
-```
-seedling → budding → evergreen → superseded → archived
-```
+**v0.2 families (optional; absence carries meaning, never rejection)**: **provenance** `sources` — `resource` REQUIRED per entry + optional `id`/`title`/`author`/`usage_count`/`last_modified`, sibling `usage_window: {from, to}`; per-claim attribution = footnote labelled with a `sources[].id`, superseding the legacy body `# Citations` list · **trust** `generated: {by, at}` (replaces `timestamp`) + `verified[]`, actor convention `<producer>/<version>` | `human:<id>` | `process:<id>`, tiers unverified → machine-confirmed → human-reviewed · **lifecycle** `status` (`draft|stable|deprecated`) + `stale_after`; type `Attested Computation` (spec §10) available, unused.
+**Nova extensions** (§11 requires only `type`): `status` keeps the maturity enum — **seedling/budding → draft · evergreen → stable · superseded/archived → deprecated**; graph edges are Obsidian wiki links, not OKF markdown links (§6.1); hubs keep frontmatter and `log.md` headings are `## [YYYY-MM-DD] <op> | <desc>`; legacy `timestamp` stays readable as the v0.2 fallback (§13.1) and migrates to `generated.at` on next edit.
 
 ---
 
@@ -219,7 +219,7 @@ seedling → budding → evergreen → superseded → archived
 
 - **Wiki links**: `[[Note]]`, `[[Note#Section]]`, `[[Note|alias]]`, `[[Note#^block-id]]`
 - **Tags**: prefer `tags:` in frontmatter over inline `#tag` for machine-readability
-- **External links**: standard markdown; citations in a `# Citations` section
+- **External links**: standard markdown; citations live in frontmatter `sources` (§3, OKF v0.2) — a body `# Citations` list is the tolerated legacy form
 - **Minimum 1–3 outbound links per note** — orphan = zero inbound wiki links (§2.1)
 - **Tags answer "what category?" — links answer "how does this connect?"**
 
@@ -344,6 +344,6 @@ This file names DSH native tools because DSH is the vault's runtime.
 
 > **Development workflow** (branching, release process): see [[development|_meta/development.md]] — not loaded per session.
 >
-> **Version**: 1.8.0
+> **Version**: 1.9.0
 > **Line budget**: ≤ 350 lines, one-in-one-out for new rules (§2.5)
-> **Conforms to**: OKF v0.1
+> **Conforms to**: OKF v0.2

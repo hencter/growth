@@ -1,17 +1,17 @@
 ---
 type: Index
 title: Nova Knowledge Vault
-description: Progressive-disclosure catalog of the entire Nova knowledge vault — an AI-maintained, Zettelkasten-inspired, OKF-conformant knowledge base.
+description: Progressive-disclosure catalog of the entire Nova knowledge vault — an AI-maintained, Zettelkasten-inspired, OKF v0.2-conformant knowledge base.
 tags:
   - index
   - catalog
-timestamp: 2026-07-13T18:00:00Z
-okf_version: "0.1"
+generated: { by: dsh/deepseek-flash, at: 2026-10-05T05:00:00+08:00 }
+okf_version: "0.2"
 ---
 
 # Nova 知识库
 
-欢迎来到 Nova 知识库 — 一个基于 Obsidian 的、自举式 AI 维护的知识体系。本知识库遵循 [[okf-format|Open Knowledge Format (OKF)]]、[[zettelkasten-methodology|Zettelkasten Methodology]] 和 [[karpathy-llm-curriculum|Karpathy LLM Curriculum]] 的设计原则。
+欢迎来到 Nova 知识库 — 一个基于 Obsidian 的、自举式 AI 维护的知识体系。本知识库遵循 [[okf-format|Open Knowledge Format (OKF)]] v0.2、[[zettelkasten-methodology|Zettelkasten Methodology]] 和 [[karpathy-llm-curriculum|Karpathy LLM Curriculum]] 的设计原则。
 
 > **导航提示**：从这里开始。下方每个栏目链接到一个主题集群。跟随链接深入探索。
 
@@ -29,6 +29,7 @@ graph TD
     VAULT --> QUERY[Query]
     VAULT --> LINT[Lint]
 
+    DIRS --> LEARNING[/learning/]
     DIRS --> CONCEPTS[/concepts/]
     DIRS --> TOOLS[/tools/]
     DIRS --> PATTERNS[/patterns/]
@@ -40,12 +41,30 @@ graph TD
 
 ## 📍 知识集群
 
+### 📈 [[learning|学习 — 加速学习方法论]]
+本库的主线：把「学得更快」沉淀成可复用的方法。原子知识点 + 情景化技能（`.agents/skills/`）。
+- [[learning-acceleration-loop|Learning Acceleration Loop]] — 七阶段学习回路：提问 → 查一手 → 拆解 → 骨架 → 验证 → 输出 → 反馈
+- [[naval-learning-method|Naval Learning Method]] — 极速研究法四步 + 独特阅读法三招
+- [[first-principles-thinking|First Principles Thinking]] — 回归本源重建，而不是类比照抄
+- [[investigation-before-judgement|Investigation Before Judgement]] — 没有调查就没有发言权
+- [[metacognition-monitoring-protocol|Metacognition Monitoring Protocol]] — 执行前/中/后自校准 + 置信度四标记 + 熔断
+- [[output-based-retention|Output-Based Retention]] — 输出是检验，不是副产品
+- [[review-and-recall-rhythm|Review and Recall Rhythm]] — 日/周/月/季回顾与检索练习节奏
+- [[learning-time-block-design|Learning Time-Block Design]] — 上班族的深度块、番茄钟与微量启动
+- [[mental-models-lattice|Mental Models Lattice]] — 跨学科心智模型网格的积累纪律
+- [[progressive-disclosure|Progressive Disclosure]] — 常驻层 + 指针路由，按需加载
+- [[memory-palace-dual-coding|Memory Palace Dual Coding]] — 图谱管语义、宫殿管位置
+- [[sandwich-teaching-method|Sandwich Teaching Method]] — 类比 → 最小定义 → 立刻动手
+- [[source-credibility-and-observation-stance|Source Credibility and Observation Stance]] — 信源分级 L0–L5、信号与噪声
+- [[independent-thinking-against-information-overload|Independent Thinking Against Information Overload]] — 先写自己的回答，再听不一样的声音
+
 ### 🧠 [[_meta|元信息 — 关于知识库本身]]
 知识库的自我参照层：运作机制、约定规范与自举策略。
 - [[vault-architecture|Vault Architecture]] — 知识库的结构设计与原理
 - [[conventions|Conventions]] — 命名、链接与 frontmatter 规范
 - [[self-bootstrapping|Self-Bootstrapping]] — 知识库如何自我维护与成长
 - [[promotions|Promotion Ledger]] — 升格台账：活跃规则与约束笔记（boot 加载）
+- [[imported-skills|Imported Skills Ledger]] — 外部技能导入台账：来源、SHA-256、绑定风险与冲突
 
 ### 🤖 [[concepts|概念 — 核心思想]]
 原子化、可持久化的笔记，涵盖 AI Agent、知识管理与系统设计等基础概念。
@@ -62,7 +81,7 @@ graph TD
 - [[a2a-protocol|A2A Protocol]] — Agent-to-Agent Protocol：Agent 间通信的标准协议
 - [[agent-skills-standard|Agent Skills Standard]] — agentskills.io 开放标准：SKILL.md 格式与跨工具技能可移植性
 - [[zettelkasten-methodology|Zettelkasten Methodology]] — 卡片盒笔记法（ZK 方法）
-- [[okf-format|OKF Format]] — Google 的 Open Knowledge Format 规范
+- [[okf-format|OKF Format]] — 开放知识格式 v0.2：provenance / trust / lifecycle 一等公民
 - [[markdown-frontmatter|Markdown Frontmatter]] — 知识图谱元数据的 YAML frontmatter
 - [[mermaid-diagrams|Mermaid Diagrams]] — 在 markdown 中嵌入图表
 - [[latex-in-markdown|LaTeX in Markdown]] — 知识笔记中的数学符号
@@ -103,13 +122,14 @@ Agent 通过共享 Markdown 文件进行跨上下文通信的协议与实践。
 ## 🔗 快速导航
 
 | 需求 | 前往 |
-|------|-------|
+|------|------|
 | 了解 Agent 规则 | [AGENTS.md](AGENTS.md) |
 | 查看近期活动 | [log.md](log.md) |
+| 我该怎么学得更快 | [[learning\|学习中枢]] |
 | 创建新概念笔记 | [[concept-template|概念模板]] |
 | 浏览全部概念 | [[concepts]] |
-| 理解 ZK 方法 | [[zettelkasten-methodology|Zettelkasten Methodology]] |
-| 学习 OKF 格式 | [[okf-format|OKF Format]] |
+| 理解 ZK 方法 | [[zettelkasten-methodology\|Zettelkasten Methodology]] |
+| 学习 OKF 格式 | [[okf-format\|OKF Format]] |
 
 ---
 
@@ -117,9 +137,10 @@ Agent 通过共享 Markdown 文件进行跨上下文通信的协议与实践。
 
 | 指标 | 数值 |
 |--------|-------|
-| 框架 | OKF v0.1 |
-| 模式层 | AGENTS.md v1.8.0 |
+| 框架 | OKF v0.2 |
+| 模式层 | AGENTS.md v1.9.0 |
 | 运行环境 | DeepSeek Harness（Cordis 组合） |
 | ID 系统 | Timestamp (YYYYMMDDThhmmss) |
-| 知识域 | AI Agent、知识管理、系统架构 |
+| 知识域 | 学习与成长、AI Agent、知识管理、系统架构 |
+| 技能 | 27 个（`.agents/skills/`，含 Hugo 静态站点技能包） |
 | 状态 | 活跃，持续复利增长 |

@@ -28,8 +28,9 @@ related:
 sources:
   - title: "Karpathy LLM Wiki Pattern"
     url: "https://github.com/karpathy"
-  - title: "OKF v0.1 Specification"
-    url: "https://github.com/google/okf"
+  - id: okf-spec
+    resource: "https://github.com/GoogleCloudPlatform/open-knowledge-format/blob/main/SPEC.md"
+    title: "OKF v0.2 Specification"
   - title: "Zettelkasten Method — Luhmann"
 confidence: 0.92
 summary: >

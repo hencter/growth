@@ -15,7 +15,7 @@ related:
   - "[[markdown-frontmatter|Markdown Frontmatter]]"
 confidence: 1.0
 summary: >
-  The Nova vault follows strict but minimal conventions: slug-based file naming, Obsidian wiki links, OKF v0.1 frontmatter with `type` required, and an append-only log for memory.
+  The Nova vault follows strict but minimal conventions: slug-based file naming, Obsidian wiki links, OKF v0.2 frontmatter with `type` required (provenance/trust/lifecycle families optional), and an append-only log for memory.
 ---
 
 # 约定规范
@@ -59,7 +59,7 @@ summary: >
 | 前置元数据 `related` | `"[[Note]]"` | `related: ["[[Note A]]"]` |
 | 前置元数据 `prerequisites` | `"[[note-slug]]"`（优先） | `prerequisites: ["[[okf-format]]"]` |
 | 外部引用 | `[text](url)` | [OKF Spec](https://github.com/...) |
-| 引用文献 | `[1] URL` | 参见 `# Citations` 章节 |
+| 引用文献 | frontmatter `sources` + 脚注 keyed by `sources[].id` | 见 AGENTS.md §3（OKF v0.2）；正文 `# Citations` 列表为 v0.1 兼容形态 |
 
 ### 图语义（Graph Semantics）
 
@@ -88,7 +88,7 @@ summary: >
 ### 必填字段
 ```yaml
 ---
-type: Concept    # OKF v0.1 要求必填
+type: Concept    # OKF v0.2 要求必填（唯一必填字段）
 ---
 ```
 

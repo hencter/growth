@@ -43,11 +43,11 @@
 # worktree 模式（2026-08-14 起）：每个分支锁定在各自 worktree，
 # 不跨 worktree 执行 checkout。发布 = 在对应目录执行合并：
 
-# ① dev worktree（D:\OpenCode\Navo-dev）——迭代完成后自动提交已在此完成
-# ② main worktree（D:\OpenCode\Navo）执行：
+# ① dev worktree（本机 dev 工作目录）——迭代完成后自动提交已在此完成
+# ② main worktree（本机 main 工作目录）执行：
 git merge dev --no-ff -m "release: merge dev → main"
 git push origin main
 
-# ③ dev worktree（D:\OpenCode\Navo-dev）同步远程：
+# ③ dev worktree 同步远程：
 git push origin dev
 ```

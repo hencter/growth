@@ -35,20 +35,22 @@ description: "{{One-line summary of what this note explains}}"
 tags:
   - {{tag1}}
   - {{tag2}}
-  - {{tag3}}
-timestamp: {{YYYY-MM-DD}}T00:00:00Z
+generated: { by: {{producer}}/{{version}}, at: {{YYYY-MM-DD}}T{{hh:mm:ss}}+08:00 }  # OKF v0.2 (replaces legacy `timestamp`)
+verified: { by: human:{{owner}}, at: {{YYYY-MM-DD}}T{{hh:mm:ss}}+08:00 }            # optional; absent ⇒ unverified
+stale_after: {{YYYY-MM-DD}}T00:00:00+08:00                                         # optional; stale when now ≥ it
 id: "{{YYYYMMDDThhmmss}}"
 status: {{seedling | budding | evergreen}}
 difficulty: {{beginner | intermediate | advanced}}
 domain: {{knowledge-domain}}
 prerequisites:
-  - /path/to/prerequisite-note.md
+  - "[[prerequisite-note]]"
 related:
   - "[[Related Note A]]"
   - "[[Related Note B]]"
-sources:
-  - title: "{{Source Title}}"
-    url: "{{https://...}}"
+sources:                        # OKF v0.2 provenance — `resource` REQUIRED per entry
+  - id: {{source-key}}          # stable join key; cite in the body as [^{{source-key}}]
+    resource: "{{https://... or /bundle/path.md}}"
+    title: "{{Source Title}}"
 confidence: {{0.0-1.0}}
 summary: >
   {{One-sentence executive summary of the core idea.}}

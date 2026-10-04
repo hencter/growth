@@ -18,8 +18,7 @@ related:
   - "[[okf-format|OKF Format]]"
 confidence: 1
 summary: The Nova vault follows a directory-based topology where each directory represents a knowledge domain, each file an atomic note, and links form the semantic graph — no hierarchy, only connection.
-aliases:
-  - Vault Architecture
+
 ---
 
 # 知识库架构
@@ -110,15 +109,15 @@ graph TD
 
 知识库的知识图谱具有以下属性：
 
-| 属性 | 描述 |
-|----------|-------------|
-| **节点类型** | 文件（原子笔记；`type: Index` 文件为 hub） |
-| **边类型** | Wiki 链接 `[[target]]`（`prerequisites` 路径 = 依赖文档，非图边） |
-| **边语义** | 编码于链接周围的文字和 frontmatter 字段（`prerequisites`、`related`、`sources`） |
-| **方向** | 有向（链接者 → 被链接者） |
-| **反向链接** | 在查询时通过扫描所有文件的入链来计算 |
-| **密度** | 目标：每篇笔记 3+ 条入链（反孤立） |
-| **枢纽节点** | `type: Index` 文件（根 `index.md` + 根级集群 hub）提供导航 |
+| 属性       | 描述                                                              |
+| -------- | --------------------------------------------------------------- |
+| **节点类型** | 文件（原子笔记；`type: Index` 文件为 hub）                                  |
+| **边类型**  | Wiki 链接 `[[target]]`（`prerequisites` 路径 = 依赖文档，非图边）             |
+| **边语义**  | 编码于链接周围的文字和 frontmatter 字段（`prerequisites`、`related`、`sources`） |
+| **方向**   | 有向（链接者 → 被链接者）                                                  |
+| **反向链接** | 在查询时通过扫描所有文件的入链来计算                                              |
+| **密度**   | 目标：每篇笔记 3+ 条入链（反孤立）                                             |
+| **枢纽节点** | `type: Index` 文件（根 `index.md` + 根级集群 hub）提供导航                   |
 
 ### 预期的图谱结构
 
@@ -150,7 +149,7 @@ graph LR
 
 ## 关键架构决策
 
-1. **OKF v0.1 合规**：每个文件在 frontmatter 中有 `type`。所有链接使用 markdown 语法。`index.md` 用于渐进式披露。`log.md` 用于变更日志。
+1. **OKF v0.2 合规**：每个文件在 frontmatter 中有 `type`（唯一必填）。可选族：provenance（`sources`）/ trust（`generated`/`verified`）/ lifecycle（`status`/`stale_after`）。内部链接用 wiki 链接（§3 Nova 扩展，Obsidian 优先）；`index.md` 用于渐进式披露；`log.md` 用于变更日志。
 2. **Obsidian wiki 链接**：内部引用使用 `[[note-name]]`。Obsidian 将其渲染为可点击链接并自动追踪反向链接。
 3. **时间戳 ID**：`YYYYMMDDThhmmss` 格式，提供稳定、可排序的标识符。
 4. **暂无 raw/ 层**：当前为种子知识库，无不不可变的源文档。raw 层可随知识库增长而添加。

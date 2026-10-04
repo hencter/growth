@@ -32,8 +32,8 @@ dev  ← active development (default branch)
 ## Worktree 模式（2026-08-14 启用）
 
 ```
-D:\OpenCode\Navo      → main  worktree（生产测试）
-D:\OpenCode\Navo-dev  → dev   worktree（全仓迭代）
+<main-worktree>      → main  worktree（生产测试）
+<dev-worktree>  → dev   worktree（全仓迭代）
 ```
 
 - 两个 worktree 共享同一 `.git`；**每个分支同时只能在一个 worktree 检出**——主目录永远停在 `main`，迭代全部在 `Navo-dev`
