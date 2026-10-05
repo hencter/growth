@@ -50,11 +50,11 @@ summary: >
 | 日期 | 事实 | 出处 |
 |---|---|---|
 | 2019-02-14 | 项目创建，仓库名 **`rust-reddit-fediverse`**（描述：A decentralised discussion platform for communities） | GitHub API `repos/dessalines/rust-reddit-fediverse` |
-| 2019-02-14 | **#1「Prismo」**：Nutomic 指出"已有几乎同类的项目"—— `prismo.news` | [[lemmy-issue-1]] |
-| 2019-02-25 | **#3「Build ActivityPUB API」**，正文直接链接前身仓库的 `API.md` | [[lemmy-issue-3]] |
+| 2019-02-14 | **#1「Prismo」**：Nutomic 指出"已有几乎同类的项目"—— `prismo.news` | [^lemmy-issue-1] |
+| 2019-02-25 | **#3「Build ActivityPUB API」**，正文直接链接前身仓库的 `API.md` | [^lemmy-issue-3] |
 | 2019-02-25 | `API.md` 首次提交，提交信息：**「Initial outline of activitypub API」** | git 历史（`commits?path=API.md`） |
-| 2019-05-05 | **#145「Federation」**：生产前置清单；**"Our primary goal is to federate among Lemmy instances. Federation with other implementations (eg Mastodon or Pleroma) will come after that."** | [[lemmy-issue-145]] |
-| 2019-05-15 | `docs/apub_api_outline.md` 初版提交；开头一句就是**方法**：*"Start with the [reddit API], and find [Activitypub vocab] to match it."* | [[apub-outline]] |
+| 2019-05-05 | **#145「Federation」**：生产前置清单；**"Our primary goal is to federate among Lemmy instances. Federation with other implementations (eg Mastodon or Pleroma) will come after that."** | [^lemmy-issue-145] |
+| 2019-05-15 | `docs/apub_api_outline.md` 初版提交；开头一句就是**方法**：*"Start with the [reddit API], and find [Activitypub vocab] to match it."* | [^apub-outline] |
 | 2019-08-18 | **#212** 要求提交 `activitypub.rocks` 的一致性实现报告；**#215** 用户质问"我是 fediverse 应用，为什么不能用我实例的账号评论" | GitHub #212 / #215 |
 | 2019-10-09 | **#145 评论（poVoq）**：提出社区建模应改用"从 GNU Social 时代就有、Friendica 与 Hubzilla 已实现"的既有方法 | 同上 |
 | 2019-12-01 | **#145 评论（Nutomic）**：告知已有一个现成的 Rust ActivityPub 库（crates.io） | 同上 |
@@ -63,7 +63,7 @@ summary: >
 | 2020-03-05 → 04-11 | **#578** 只读联邦实施方案 → **#633** "ready to merge"；2020-04-20 **#647** "We now have basic, working federation" | GitHub #578 / #633 / #647 |
 | 2020-04 | 联邦进入发布线（v0.6.x 附近；release notes 未逐条标注 → **标 [推断]**） | releases 列表 |
 | 2021-11-01 | **#1874**：为防"**像 0.13 那样**造成破坏性的联邦变更"而加协议测试 | GitHub #1874 |
-| 2026-10-05（抓取日） | 官方文档仍写：*"Lemmy uses the ActivityPub protocol for communication between servers"*，映射仍是 **Community=Group · User=Person · Post=Page · Comment=Note**；通用逻辑抽成 `activitypub-federation` 库；社区联邦对应 **FEP-1b12** | [[lemmy-docs-fed]] |
+| 2026-10-05（抓取日） | 官方文档仍写：*"Lemmy uses the ActivityPub protocol for communication between servers"*，映射仍是 **Community=Group · User=Person · Post=Page · Comment=Note**；通用逻辑抽成 `activitypub-federation` 库；社区联邦对应 **FEP-1b12** | [^lemmy-docs-fed] |
 
 ## 二、每条证据能支撑 ADR 的哪一栏（**这里只分类，不下判断**）
 
@@ -99,3 +99,11 @@ summary: >
 ## Provenance
 
 全部条目为 2026-10-05 通过 `gh api` / `gh issue view` 实测抓取（仓库 issue 正文与评论、git 提交历史、release 列表、官方文档原始文件），以及维基百科两条目（二手，已标注）。**本清单不含对"境/择/存/果"的判断**——那是学习者的交付物。清单自身的两处推断已在第四节第 5 问中留作练习。
+
+## 脚注
+
+[^lemmy-issue-1]: https://github.com/LemmyNet/lemmy/issues/1 — 「Prismo」（2019-02-14，Nutomic）
+[^lemmy-issue-3]: https://github.com/LemmyNet/lemmy/issues/3 — 「Build ActivityPUB API」（2019-02-25，dessalines）
+[^lemmy-issue-145]: https://github.com/LemmyNet/lemmy/issues/145 — 「Federation」（2019-05-05，dessalines；16 条评论）
+[^apub-outline]: https://github.com/LemmyNet/lemmy/blob/main/docs/apub_api_outline.md — 初版提交 2019-05-15「Adding API docs for app developers」
+[^lemmy-docs-fed]: https://github.com/LemmyNet/lemmy-docs/blob/main/src/contributors/05-federation.md — 官方贡献者文档（Group/Person/Page/Note 映射）
