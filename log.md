@@ -4,6 +4,16 @@
 
 ---
 
+## [2026-10-05] fix | 改用官方 Obsidian CLI 做链接体检（自写脚本退役为后备）→ §2.3
+
+**触发**：学习者要求「直接采用 obsidian cli 进行检测，不要用你自己写的破脚本检测了」。
+**CLI 可用性**：`obsidian` 不在 PATH，但实装在 `%LOCALAPPDATA%\Programs\Obsidian\Obsidian.com`（全路径可调用）；`version`/`vault` 提示「Command line interface is not enabled（Settings > General > Advanced）」，但**图查询类命令可用**（orphans / deadends / unresolved）。
+**权威结果与处置**：
+1. **unresolved = 3** → 全部修掉：`learning/architecture-what-counts.md` 2 条（把**技能名**当笔记链接 → 去链改文本，§8 技能非图节点）＋ `log.md` 1 条历史占位符 `[[wiki links]]` → 代码体（§2.4 修断链）。
+2. **orphans = 130 / deadends = 134**，构成是 `public` 107 · `layouts` 13 · `static` 2 · `hugo.toml` · `LICENSE` · `RELEASE.md` · `skills` · `_agents` 2 · `conference/README.md` · `log-archive` —— 全为**构建产物/站点脚手架/配置/机器文件**；**内容簇（concepts/learning/tools/patterns/中枢）0 孤儿、0 无出链**。已在 `.obsidian/app.json` 的 `userIgnoreFilters` 加 `public/ resources/ layouts/ static/`，使 CLI 数字可解读。
+3. **与自写脚本对比（如实）**：最终 3 条 unresolved **与脚本一致**，但为达成一致我**两次修正检测器**（豁免逻辑写错、转义管道被误判为断链）；orphans 因**定义域不同**（CLI 数全部文件 vs §2.3 只数图节点）相差 130 : 0。**结论：链接体检以官方 CLI 为准，自写正则仅作后备。**
+**加固（扩展既有行）**：§2.3 step 2 / step 4 指名 `obsidian` 技能与 CLI 为权威并写明节点域排除项；台账合并 §2.6 两行腾位、新增 §2.3 行（**维持 50 行预算**）。
+**管线**：严格构建 0 警告。
 ## [2026-10-05] lint | 整理：新增 `_meta/backlog.md`（唯一待办清单）· 会议记录改真图边 · 修掉我取证笔记里的 5 条伪链接（→ 脚注）→ [[backlog]]
 
 **触发**：学习者「开始整理叭，任务列入待办」。
@@ -887,7 +897,7 @@
 - 来源：git-scm.com 官方文档，Pro Git 第二版（Chacon & Straub, 2014）
 
 ## [2026-06-22] lint | Wiki 链接完整性扫描与修复
-- 扫描全部 39+ 个文件，检测损坏的 [[wiki links]]
+- 扫描全部 39+ 个文件，检测损坏的 `wiki links`
 - 为 4 个文件添加别名：mcp-protocol.md（"MCP Protocol"）、a2a-protocol.md（"A2A Protocol"）、zettelkasten-methodology.md（"ZK", "Zettelkasten Method", "slip box"）、okf-format.md（"Open Knowledge Format (OKF)"）
 - 修复 index.md 中基于路径的链接（../../AGENTS → 标准 markdown、../log → 标准 markdown）
 - 修复 nova-identity.md 中基于路径的 wiki 链接（../../.opencode/... → 相对 markdown 链接）

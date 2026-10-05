@@ -130,9 +130,9 @@ Two query modes (inspired by GraphRAG, arXiv:2404.16130) — strategy depends on
 
 **Protocol**:
 1. **Contradiction scan**: Search for conflicting claims across notes (conflicting nodes)
-2. **Orphan detection**: Find nodes with zero inbound wiki links (not listed in any hub, not referenced in any note's `related` or body)
+2. **Orphan detection**: use the `obsidian` skill / CLI (`obsidian orphans`) as authority; its raw count includes non-node files, so interpret node-scoped — exclude `public/`, `resources/`, `layouts/`, `static/`, `.agents/`, `_agents/`, `_identity/`, `templates/`, root docs and build output
 3. **Missing cross-link scan**: Notes sharing tags/domain within a community (directory) that are not cross-linked — missing edges (semantic gaps, not community redefinition)
-4. **Broken links**: Edges pointing to non-existent nodes
+4. **Broken links**: `obsidian unresolved verbose` is authoritative; hand-rolled regex detectors are a fallback only (fix 2026-10-05: mine produced two false-positive classes before agreeing with the CLI)
 5. **Staleness check**: Notes with `status: superseded` or outdated content
 6. **Promotion audit (grep, mechanical)**: grep `log.md` for `fix` entries missing `→ [[artifact]]`/`→ §N` and not marked `lesson: trivial` — **unresolved debts**. (grep, not full scan — compatible with selective memory.)
 7. **Version + clock sync**: `index.md` statistics block must reflect `AGENTS.md` footer version — mismatch is a bug; and every `generated.at`/`id` must be **≤ now** and consistent with git's first-commit time (hand-written timestamps are fabrications, fix 2026-10-05)

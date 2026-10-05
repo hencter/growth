@@ -22,7 +22,11 @@
   "userIgnoreFilters": [
     ".opencode/",
     "skills/",
-    "opencode.json"
-  ],
+    "opencode.json",
+      "public/",
+      "resources/",
+      "layouts/",
+      "static/"
+    ],
   "showInlineTitle": false
 }

@@ -13,7 +13,6 @@ prerequisites:
 related:
   - "[[rapid-domain-entry-protocol|Rapid Domain Entry Protocol]]"
   - "[[sandwich-teaching-method|Sandwich Teaching Method]]"
-  - "[[practice-cognition-note|Practice and Cognition]]"
   - "[[learning-acceleration-loop|Learning Acceleration Loop]]"
 sources:
   - id: learner-statement
@@ -127,4 +126,4 @@ summary: >
 
 ## Provenance
 
-本课的教学结构取自 [[sandwich-teaching-method|三明治教学法]] 与 [[practice-cognition|实践认识论]]（感性 → 理性 → 实践）；「架构 = 难改的决策」这一表述是本库的提炼（`[推断]`），用于入门定位，不冒充学界定论。学习者原话「我觉得我不懂架构，你可能得从头教我」为唯一证据来源，按评估规则标为**自报、样本=1**。
+本课的教学结构取自 [[sandwich-teaching-method|三明治教学法]] 与 **实践认识论**（技能 `practice-cognition`）（感性 → 理性 → 实践）；「架构 = 难改的决策」这一表述是本库的提炼（`[推断]`），用于入门定位，不冒充学界定论。学习者原话「我觉得我不懂架构，你可能得从头教我」为唯一证据来源，按评估规则标为**自报、样本=1**。
