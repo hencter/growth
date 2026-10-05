@@ -18,4 +18,5 @@ This directory contains knowledge about the vault itself — its architecture, c
 - [[conventions|Conventions]] — Naming rules, linking conventions, frontmatter standards, file organization
 - [[promotions|Promotion Ledger]] — Active rules & constraint notes; read at boot (§2.5)
 - [[self-bootstrapping|Self-Bootstrapping]] — How the vault maintains and grows itself without external infrastructure
+- [[backlog|Backlog — 待办与进行中]] — 唯一待办清单；每条带验收标准
 - [[development|Development Workflow]] — Branching and release process for vault maintainers (not needed for daily use)

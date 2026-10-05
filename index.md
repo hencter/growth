@@ -135,6 +135,7 @@ Agent 通过共享 Markdown 文件进行跨上下文通信的协议与实践。
 | 我该怎么学得更快 | [[learning\|学习中枢]] |
 | 用浏览器看学习站 | 见下方「站点」 |
 | 创建新概念笔记 | [[concept-template|概念模板]] |
+| 看待办与进行中 | [[backlog\|Backlog — 待办与进行中]] |
 | 浏览全部概念 | [[concepts]] |
 | 理解 ZK 方法 | [[zettelkasten-methodology\|Zettelkasten Methodology]] |
 | 学习 OKF 格式 | [[okf-format\|OKF Format]] |
