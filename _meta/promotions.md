@@ -27,7 +27,6 @@ Rules written into `AGENTS.md` — loaded every session, binding by construction
 | 2026-07-23 | §9 no-model in agent frontmatter | Setting `model` hard-fails when provider unreachable | log 2026-07-23 |
 | 2026-06-30 | §9 tool boundary (no rg/fd/fzf/bat/jq) | External search CLIs bypass permission audit | log 2026-06-30 |
 | 2026-06-30 | §1 no filesystem-absolute paths | Absolute paths break on distribution | log 2026-06-30 |
-
 | 2026-08-05 → 2026-10-05 | §2.6/§3 data accuracy — calculator · recompute · clock-derived | LLM arithmetic unreliable; counts/sizes and derived metrics recomputed at delivery; **`generated.at`/`id` from the clock or git, never estimated** (25 files carried invented timestamps) | log 2026-08-05 · 2026-10-05 |
 | 2026-10-05 | §2.3 lint via the `obsidian` skill / CLI | Official Obsidian CLI is authoritative for link health; hand-rolled regex detectors produced false positives before agreeing — fallback only | log 2026-10-05 |
 | 2026-10-05 | §4 escape the alias pipe in tables | Recurrence of the 2026-08-14 escaping lesson: an unescaped `\|` in a table cell breaks both the wiki link and the cell — the Hugo build surfaced it | log 2026-10-05 |

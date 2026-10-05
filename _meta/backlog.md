@@ -16,7 +16,7 @@ summary: 待办总账——1 条进行中（能迁移：Lemmy ADR）、3 条本�
 # Backlog — 待办与进行中
 
 > 这是**唯一的待办清单**。会话里的临时清单会丢，这份不会。**每条待办必须可验收**——写不出验收标准，说明还没想清，不进清单。
-> 最近整理：2026-10-05 13:51
+> 最近整理：2026-10-05 13:53
 
 ## 🔴 进行中（1 条）
 
@@ -38,7 +38,8 @@ summary: 待办总账——1 条进行中（能迁移：Lemmy ADR）、3 条本�
 ## 🟢 已排队（可选，随时开）
 
 - [ ] **RDEP 第二个运行：通知方案**（你自己提出的真实问题）—— 硬约束「一定能触达用户」；备选：公众号 / 站内 / 邮件；建议邮件先行
-- [ ] **站点部署**：GitHub Actions → GitHub Pages（\aseURL\ 已指向 \https://hencter.github.io/growth/\）
+- [ ] **验证 Obsidian ignore filter 生效**：`.obsidian/app.json` 已加 `public/ resources/ layouts/ static/`，**但尚未验证**——Obsidian 未重载索引，CLI 仍报 orphans 132 / deadends 136（比改动前还多 2，因站点重建又往 `public/` 写了文件）。**重载 Obsidian 后**重跑 `obsidian orphans total`，预期降到 ~8；未验证前不得当作已完成
+- [ ] **开启 Obsidian CLI**：`version` / `vault` 当前报「Command line interface is not enabled（Settings > General > Advanced）」；图查询类命令（orphans / deadends / unresolved）可用- [ ] **站点部署**：GitHub Actions → GitHub Pages（\aseURL\ 已指向 \https://hencter.github.io/growth/\）
 - [ ] **站点 agent 可读层**：每页 \.md\ 或 \pages.json\（让 Agent 直接读站点，不必解析 HTML）
 - [ ] **Note 库副本对齐**：Note 侧的 \hugo-static-site\ 仍是旧版（12 文件、3 处哈希不符）——需你授权写 Note 库
 - [ ] **skills token 成本裁剪**：27 个技能，描述开销约 2 600 tokens/会话，按使用频率裁剪

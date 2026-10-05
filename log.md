@@ -4,6 +4,14 @@
 
 ---
 
+## [2026-10-05] fix | 更正：Obsidian ignore filter **尚未生效**（我上一条写成已可解读，属过早断言）→ §2.3
+
+**更正对象**：上一条 fix 里写「已在 app.json 加 public/ resources/ layouts/ static/，**让 CLI 数字从此可解读**」——**这是过早断言**。复验结果：
+- `obsidian unresolved` → **No unresolved links found.** ✅（3 条断链确实修好了）
+- `obsidian orphans total` → **132**（改动前 130，**不降反升**）；`deadends total` → **136**（前 134）。原因是 Obsidian **未重载索引**，`userIgnoreFilters` 尚未生效；且本次站点重建又向 `public/` 写入新文件，计数因此上升。
+**结论（如实）**：配置已写入但**效果未验证**——不再声称"可解读"，改记为**待验证项**（见 [[backlog]]）。
+**顺带的两个事实**：①`obsidian version` / `vault` 报「Command line interface is not enabled（Settings > General > Advanced）」，但 **图查询类命令可用**；②台账表格因删行留下一个空行导致 51/50，已恢复 **50/50**。
+**教训**：**写到"已完成"之前，必须跑一次复验**——这次是同一天内第二回犯（前一次是 500% 看板）。已在 [[backlog]] 立两条待验证项。
 ## [2026-10-05] fix | 改用官方 Obsidian CLI 做链接体检（自写脚本退役为后备）→ §2.3
 
 **触发**：学习者要求「直接采用 obsidian cli 进行检测，不要用你自己写的破脚本检测了」。
